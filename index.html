@@ -98,8 +98,30 @@ table.tbl tbody tr{cursor:pointer;transition:background .15s}table.tbl tbody tr:
 .dest-card img{width:100%;height:100%;object-fit:cover}
 .dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);display:flex;align-items:flex-end;padding:20px;color:#fff}
 .logo-link{cursor:pointer;display:flex;align-items:center}
-@media(max-width:900px){.sidebar{width:210px}.grid-2,.grid-3{grid-template-columns:1fr}.grid-auto{grid-template-columns:1fr}.web-stats{flex-wrap:wrap}}
-@media(max-width:700px){.sidebar{position:fixed;top:62px;left:0;bottom:0;z-index:90;width:260px;box-shadow:4px 0 20px rgba(0,0,0,.15);transform:translateX(0)}.sidebar.closed{transform:translateX(-100%)}.header{padding:0 14px}.web-nav-links{gap:14px}.web-hero h1{font-size:32px!important}}
+@media(max-width:900px){.sidebar{width:200px}.grid-2,.grid-3{grid-template-columns:1fr}.grid-auto{grid-template-columns:1fr}.web-stats{flex-wrap:wrap}}
+@media(max-width:700px){
+  .sidebar{position:fixed;top:62px;left:0;bottom:0;z-index:90;width:270px;box-shadow:4px 0 24px rgba(0,0,0,.18);transform:translateX(-100%);transition:transform .25s ease}
+  .sidebar.open{transform:translateX(0)}
+  .header{padding:0 12px}
+  .web-nav-links{display:none}
+  .web-nav-mobile-btn{display:flex!important}
+  .web-hero h1{font-size:30px!important;line-height:1.15!important}
+  .web-hero-content p{font-size:15px!important}
+  .web-hero-btns{flex-direction:column!important;gap:10px!important;align-items:center!important}
+  .web-hero-btns a{width:100%;max-width:280px;justify-content:center;padding:14px 20px!important;font-size:14px!important}
+  .web-stats .web-stat-item{min-width:calc(50% - 1px)}
+  .web-section{padding:40px 16px!important}
+  .web-footer{padding:36px 16px!important}
+  .modal{padding:20px!important}
+  main{padding:16px!important}
+  .grid-3{grid-template-columns:1fr!important}
+  .hide-mobile{display:none!important}
+}
+.sidebar-overlay{display:none;position:fixed;inset:0;top:62px;background:rgba(0,0,0,.35);z-index:89;cursor:pointer}
+.web-nav-mobile-btn{display:none;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:20px;align-items:center;justify-content:center}
+.web-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,var(--brand-900),var(--brand-700));z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.web-mobile-menu a{color:#fff;font-size:22px;font-weight:600;text-decoration:none}
+.web-mobile-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:22px;cursor:pointer;width:44px;height:44px;border-radius:50%}
 </style>
 </head>
 <body>
@@ -228,7 +250,7 @@ const $=(s,p)=>(p||document).querySelector(s);
 const $$=(s,p)=>[...(p||document).querySelectorAll(s)];
 
 const state={
-  view:'website',page:'dashboard',subPage:null,sideOpen:true,
+  view:'website',page:'dashboard',subPage:null,sideOpen:window.innerWidth>700,
   selectedEnquiry:null,modal:null,
   editingBranch:null,editingStaff:null,editingPkg:null,editingDest:null,
   loggedIn:false,user:null,
@@ -306,27 +328,33 @@ function renderAdmin(){
       <div style="display:flex;align-items:center;gap:12px">
         <div style="display:flex;align-items:center;gap:8px">
           <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#f97316);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px">${state.user?.name?.charAt(0)||'A'}</div>
-          <div><div style="color:#fff;font-weight:600;font-size:13px">${state.user?.name||'Admin'}</div><div style="color:rgba(255,255,255,.55);font-size:11px">${state.user?.role||'Master'}</div></div>
+          <div class="hide-mobile"><div style="color:#fff;font-weight:600;font-size:13px">${state.user?.name||'Admin'}</div><div style="color:rgba(255,255,255,.55);font-size:11px">${state.user?.role||'Master'}</div></div>
         </div>
         <button class="btn btn-pill btn-sm" onclick="doLogout()" style="background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3);font-size:11px">Logout</button>
       </div>
     </header>
     <div style="display:flex;flex:1;overflow:hidden">
       ${renderSidebar(s)}
+      <div id="sidebarOverlay" style="display:none;position:fixed;inset:0;top:62px;background:rgba(0,0,0,.35);z-index:89;cursor:pointer" onclick="closeSidebarOnMobile()"></div>
       <main style="flex:1;padding:24px;overflow-y:auto">${renderPage(s)}</main>
     </div>
   </div>
   ${state.modal==='new_enquiry'?renderEnquiryModal():''}`;
+  // Desktop: open sidebar, ensure overlay hidden
+  if(window.innerWidth>700){state.sideOpen=true;const sb=document.getElementById('sidebar');if(sb)sb.classList.add('open');const ov=document.getElementById('sidebarOverlay');if(ov)ov.style.display='none';}
 }
 
 function renderSidebar(s){
+  const isMaster=state.user?.role==='Master';
   const items=[
     {key:'dashboard',icon:'\ud83d\udcca',label:'Dashboard'},
     {key:'enquiries',icon:'\ud83d\udccb',label:'Enquiries'},
     {key:'packages_admin',icon:'\ud83d\udce6',label:'Packages'},
     {key:'destinations_admin',icon:'\ud83c\udf0d',label:'Destinations'},
-    {key:'branches',icon:'\ud83c\udfe2',label:'Branches'},
-    {key:'staff',icon:'\ud83d\udc65',label:'Staff'},
+    ...(isMaster?[
+      {key:'branches',icon:'\ud83c\udfe2',label:'Branches'},
+      {key:'staff',icon:'\ud83d\udc65',label:'Staff'},
+    ]:[]),
   ];  const filters=[
     {key:'f_overdue',icon:'\ud83d\udd34',label:'Overdue ('+s.overdue+')'},
     {key:'f_today',icon:'\ud83d\udfe1',label:'Due Today ('+s.today+')'},
@@ -335,7 +363,7 @@ function renderSidebar(s){
     {key:'f_visa',icon:'\ud83d\udcc4',label:'Visa ('+s.visa+')'},
     {key:'f_flight',icon:'\u2708\ufe0f',label:'Flights ('+s.flight+')'},
   ];
-  return `<nav class="sidebar${state.sideOpen?'':' closed'}" id="sidebar">
+  return `<nav class="sidebar${state.sideOpen?' open':''}" id="sidebar">
     <div style="padding:6px 16px 10px;font-size:10px;font-weight:700;color:var(--slate-400);text-transform:uppercase;letter-spacing:1.2px">Main</div>
     ${items.map(i=>`<button class="sidebar-btn${state.page===i.key?' active':''}" onclick="navigate('${i.key}')"><span class="icon">${i.icon}</span>${i.label}</button>`).join('')}
     <div style="padding:16px 16px 10px;font-size:10px;font-weight:700;color:var(--slate-400);text-transform:uppercase;letter-spacing:1.2px;margin-top:10px">Quick Filters</div>
@@ -348,8 +376,8 @@ function renderSidebar(s){
 function renderPage(s){
   switch(state.page){
     case 'dashboard':return renderDashboard(s);
-    case 'branches':return renderBranches();
-    case 'staff':return renderStaff();
+    case 'branches':return state.user?.role==='Master'?renderBranches():'';
+    case 'staff':return state.user?.role==='Master'?renderStaff():'';
     case 'enquiries':return state.selectedEnquiry?renderEnquiryDetail():renderEnquiries();
     case 'packages_admin':return renderPackagesAdmin();
     case 'destinations_admin':return renderDestinationsAdmin();
@@ -559,12 +587,20 @@ function renderWebsite(){
       <img src="${LOGO}" class="logo-link" style="height:50px;border-radius:8px" onclick="state.view='website';render()" alt="The FunTours">
       <div class="web-nav-links"><a href="#home" onclick="state.view='website';render()">Home</a><a href="#packages">Packages</a><a href="#contact">Contact</a>
       <button class="btn btn-pill" onclick="state.view='login';render()" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px">\ud83d\udd12 Admin Login</button></div>
+      <button class="web-nav-mobile-btn" onclick="document.getElementById('webMobileMenu').style.display='flex'">&#9776;</button>
+    </div>
+    <div id="webMobileMenu" class="web-mobile-menu" style="display:none">
+      <button class="web-mobile-close" onclick="document.getElementById('webMobileMenu').style.display='none'">&#10005;</button>
+      <a href="#home" onclick="document.getElementById('webMobileMenu').style.display='none';state.view='website';render()">Home</a>
+      <a href="#packages" onclick="document.getElementById('webMobileMenu').style.display='none'">Packages</a>
+      <a href="#contact" onclick="document.getElementById('webMobileMenu').style.display='none'">Contact</a>
+      <button class="btn btn-pill" onclick="document.getElementById('webMobileMenu').style.display='none';state.view='login';render()" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:15px;padding:14px 32px">\ud83d\udd12 Admin Login</button>
     </div>
     <div class="web-hero-content"><div style="max-width:720px">
       <div style="display:inline-block;background:rgba(255,255,255,.12);padding:6px 18px;border-radius:50px;font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:18px;backdrop-filter:blur(4px)">\u2728 Trusted by 500+ Happy Travelers</div>
       <h1 style="color:#fff;font-size:54px;font-weight:800;font-family:'Playfair Display',serif;line-height:1.08">Unforgettable Travel<br>Experiences Await</h1>
       <p style="color:rgba(255,255,255,.75);font-size:18px;margin-top:18px;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">From serene backwaters to exotic islands \u2014 10 years of crafting unforgettable journeys from Karur, Erode & Kangeyam</p>
-      <div style="display:flex;gap:14px;justify-content:center;margin-top:32px">
+      <div class="web-hero-btns" style="display:flex;gap:14px;justify-content:center;margin-top:32px">
         <a href="#packages" class="btn btn-pill btn-lg" style="background:#fff;color:var(--brand-900);font-weight:700;font-size:16px;padding:16px 36px">Explore Packages</a>
         <a href="#contact" class="btn btn-pill btn-lg" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);font-size:16px;padding:16px 36px">Contact Us</a>
       </div>
@@ -638,8 +674,23 @@ function showPkgModal(id){
 }
 
 /* ══════════ EVENT HANDLERS (Supabase) ══════════ */
-function navigate(p){state.page=p;state.selectedEnquiry=null;state.subPage=null;render()}
-function toggleSidebar(){state.sideOpen=!state.sideOpen;const sb=$('#sidebar');if(sb)sb.classList.toggle('closed')}
+function navigate(p){state.page=p;state.selectedEnquiry=null;state.subPage=null;closeSidebarOnMobile();render()}
+function toggleSidebar(){
+  state.sideOpen=!state.sideOpen;
+  const sb=document.getElementById('sidebar');
+  if(sb)sb.classList.toggle('open',state.sideOpen);
+  const ov=document.getElementById('sidebarOverlay');
+  if(ov)ov.style.display=(state.sideOpen&&window.innerWidth<=700)?'block':'none';
+}
+function closeSidebarOnMobile(){
+  if(window.innerWidth<=700&&state.sideOpen){
+    state.sideOpen=false;
+    const sb=document.getElementById('sidebar');
+    if(sb)sb.classList.remove('open');
+    const ov=document.getElementById('sidebarOverlay');
+    if(ov)ov.style.display='none';
+  }
+}
 
 // ── Branches ──────────────────────────────────────────────────────────────
 async function saveBranch(){
