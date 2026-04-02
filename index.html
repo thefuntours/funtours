@@ -117,11 +117,166 @@ table.tbl tbody tr{cursor:pointer;transition:background .15s}table.tbl tbody tr:
   .grid-3{grid-template-columns:1fr!important}
   .hide-mobile{display:none!important}
 }
+/* ═══ FUN HOLIDAY WEBSITE THEME ═══ */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{
+  --sun:#FFD93D;--sun2:#FF6B35;--ocean:#00B4D8;--ocean2:#0077B6;--leaf:#06D6A0;--coral:#FF6B9D;--sky:#90E0EF;--sand:#FFF3B0;
+  --fun-grad:linear-gradient(135deg,#FF6B35,#FFD93D,#06D6A0,#00B4D8);
+}
+/* Floating shapes */
+@keyframes floatY{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(5deg)}}
+@keyframes floatX{0%,100%{transform:translateX(0) rotate(0deg)}50%{transform:translateX(12px) rotate(-4deg)}}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes pulse-scale{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes wave-blob{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes pop-in{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes slide-up-fade{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes confetti-fall{from{opacity:1;transform:translateY(-20px) rotate(0deg)}to{opacity:0;transform:translateY(80px) rotate(360deg)}}
+
+/* Fun Nav */
+.fun-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:3px solid var(--sun);padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 24px rgba(255,107,53,.15)}
+.fun-nav-links{display:flex;gap:6px;align-items:center}
+.fun-nav-links a{padding:8px 18px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:#333;text-decoration:none;transition:all .2s;position:relative}
+.fun-nav-links a:hover{background:var(--sun);color:#fff;transform:translateY(-2px)}
+.fun-login-btn{background:linear-gradient(135deg,var(--ocean),var(--ocean2));color:#fff!important;padding:10px 22px!important;border-radius:50px!important;font-weight:800!important;box-shadow:0 4px 14px rgba(0,180,216,.35);transition:all .2s!important}
+.fun-login-btn:hover{transform:translateY(-3px)!important;box-shadow:0 8px 24px rgba(0,180,216,.45)!important}
+
+/* Hero */
+.fun-hero{min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(160deg,#0077B6 0%,#00B4D8 35%,#90E0EF 65%,#FFD93D 100%)}
+.fun-hero-blob{position:absolute;width:600px;height:600px;background:rgba(255,255,255,.08);animation:wave-blob 8s ease-in-out infinite;pointer-events:none}
+.fun-float-emoji{position:absolute;font-size:3rem;animation:floatY 3s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2))}
+.fun-float-emoji:nth-child(2){animation:floatX 4s ease-in-out infinite;animation-delay:.5s}
+.fun-float-emoji:nth-child(3){animation:floatY 3.5s ease-in-out infinite;animation-delay:1s}
+.fun-float-emoji:nth-child(4){animation:floatX 5s ease-in-out infinite;animation-delay:1.5s}
+.fun-float-emoji:nth-child(5){animation:floatY 4.5s ease-in-out infinite;animation-delay:.8s}
+.fun-float-emoji:nth-child(6){animation:floatX 3.8s ease-in-out infinite;animation-delay:2s}
+
+/* Marquee */
+.fun-marquee-wrap{background:var(--sun);overflow:hidden;padding:10px 0;white-space:nowrap;border-top:3px solid #fff;border-bottom:3px solid #fff}
+.fun-marquee{display:inline-flex;gap:0;animation:marquee 20s linear infinite}
+.fun-marquee-item{font-family:'Fredoka One',cursive;font-size:18px;color:var(--ocean2);padding:0 32px;display:inline-flex;align-items:center;gap:10px}
+
+/* Stat strip */
+.fun-stats-strip{background:#fff;padding:0;display:flex;justify-content:center;box-shadow:0 8px 40px rgba(0,119,182,.12);position:relative;z-index:2;margin-top:-2px}
+.fun-stat-item{flex:1;max-width:200px;padding:28px 16px;text-align:center;border-right:2px dashed #e8f4fd;transition:transform .2s}
+.fun-stat-item:last-child{border-right:none}
+.fun-stat-item:hover{transform:translateY(-4px)}
+.fun-stat-num{font-family:'Fredoka One',cursive;font-size:42px;line-height:1;background:var(--fun-grad);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s linear infinite}
+.fun-stat-label{font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* Section headings */
+.fun-section-tag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--sun),var(--sun2));color:#fff;padding:6px 18px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;box-shadow:0 4px 14px rgba(255,107,53,.3)}
+.fun-h2{font-family:'Fredoka One',cursive;font-size:44px;line-height:1.1;color:#0077B6;margin-bottom:8px}
+.fun-subtitle{font-family:'Nunito',sans-serif;font-size:16px;color:#666;line-height:1.6}
+
+/* Why cards */
+.fun-why-card{background:#fff;border-radius:24px;padding:32px 24px;text-align:center;border:3px solid transparent;transition:all .3s;position:relative;overflow:hidden;cursor:default}
+.fun-why-card::before{content:'';position:absolute;inset:-3px;background:var(--fun-grad);background-size:200%;border-radius:26px;z-index:-1;opacity:0;transition:opacity .3s;animation:shimmer 3s linear infinite}
+.fun-why-card:hover::before{opacity:1}
+.fun-why-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+.fun-why-icon{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px;transition:transform .3s}
+.fun-why-card:hover .fun-why-icon{transform:scale(1.2) rotate(10deg)}
+.fun-why-title{font-family:'Fredoka One',cursive;font-size:22px;color:#333;margin-bottom:8px}
+.fun-why-desc{font-family:'Nunito',sans-serif;font-size:14px;color:#777;line-height:1.6}
+
+/* Destination cards */
+.fun-dest-card{border-radius:24px;overflow:hidden;position:relative;height:260px;cursor:pointer;transition:all .35s;box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.fun-dest-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 24px 56px rgba(0,0,0,.2)}
+.fun-dest-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.fun-dest-card:hover img{transform:scale(1.1)}
+.fun-dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,40,80,.75) 0%,transparent 55%)}
+.fun-dest-label{position:absolute;bottom:0;left:0;right:0;padding:20px;color:#fff;font-family:'Fredoka One',cursive;font-size:26px}
+.fun-dest-badge{position:absolute;top:14px;left:14px;background:var(--sun);color:#333;padding:4px 12px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:.5px}
+
+/* Package cards */
+.fun-pkg-card{background:#fff;border-radius:28px;overflow:hidden;border:3px solid #f0f0f0;transition:all .3s;cursor:pointer;position:relative}
+.fun-pkg-card:hover{border-color:var(--ocean);transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,180,216,.2)}
+.fun-pkg-thumb{height:210px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--ocean2),var(--ocean))}
+.fun-pkg-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.fun-pkg-card:hover .fun-pkg-thumb img{transform:scale(1.08)}
+.fun-pkg-type{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.95);color:var(--ocean2);padding:5px 14px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.fun-pkg-body{padding:22px}
+.fun-pkg-name{font-family:'Fredoka One',cursive;font-size:22px;color:#1a1a2e;margin-bottom:6px}
+.fun-pkg-meta{font-family:'Nunito',sans-serif;font-size:13px;color:#888;margin-bottom:10px;display:flex;gap:12px;flex-wrap:wrap}
+.fun-pkg-tag{background:var(--sand);color:var(--sun2);padding:3px 10px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px}
+.fun-pkg-price{font-family:'Fredoka One',cursive;font-size:30px;color:var(--ocean2);line-height:1}
+.fun-pkg-price-label{font-family:'Nunito',sans-serif;font-size:11px;color:#aaa;font-weight:600}
+.fun-enquire-btn{background:linear-gradient(135deg,var(--ocean),var(--ocean2));color:#fff;border:none;padding:10px 22px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(0,180,216,.3)}
+.fun-enquire-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,180,216,.45)}
+
+/* Filter pills */
+.fun-filter-pill{padding:9px 24px;border-radius:50px;border:2.5px solid #e0e0e0;background:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;cursor:pointer;color:#555;transition:all .2s}
+.fun-filter-pill:hover,.fun-filter-pill.active{background:linear-gradient(135deg,var(--ocean),var(--ocean2));color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(0,180,216,.35);transform:translateY(-2px)}
+
+/* Footer */
+.fun-footer{background:linear-gradient(160deg,#0077B6 0%,#023E8A 100%);padding:64px 24px 0;position:relative;overflow:hidden}
+.fun-footer::before{content:'';position:absolute;top:-60px;left:0;right:0;height:100px;background:#fff;clip-path:ellipse(55% 100% at 50% 0%)}
+.fun-footer-wave{position:absolute;top:0;left:0;right:0;height:80px}
+.fun-contact-card{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:20px;padding:24px;backdrop-filter:blur(8px);transition:all .25s}
+.fun-contact-card:hover{background:rgba(255,255,255,.14);transform:translateY(-4px)}
+.fun-contact-title{font-family:'Fredoka One',cursive;font-size:18px;color:#FFD93D;margin-bottom:4px}
+.fun-call-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--sun),var(--sun2));color:#fff;padding:12px 24px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;text-decoration:none;transition:all .2s;box-shadow:0 4px 16px rgba(255,107,53,.35);margin-top:8px}
+.fun-call-btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,107,53,.5)}
+
+/* Mobile */
+@media(max-width:700px){
+  .fun-h2{font-size:30px}
+  .fun-float-emoji{font-size:2rem}
+  .fun-hero-cta{flex-direction:column!important;align-items:center!important}
+  .fun-hero-cta a{width:100%;max-width:280px;justify-content:center}
+  .fun-stat-item{padding:20px 10px}
+  .fun-stat-num{font-size:30px}
+  .fun-nav-links{display:none}
+  .fun-mobile-btn{display:flex!important}
+}
+.fun-mobile-btn{display:none;background:var(--ocean);color:#fff;border:none;border-radius:10px;padding:9px 13px;font-size:20px;cursor:pointer;align-items:center;justify-content:center}
+.fun-mobile-menu{display:none;position:fixed;inset:0;background:linear-gradient(160deg,#0077B6,#00B4D8);z-index:500;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.fun-mobile-menu.open{display:flex}
+.fun-mobile-menu a,.fun-mobile-menu button{color:#fff;font-family:'Fredoka One',cursive;font-size:28px;text-decoration:none;background:none;border:none;cursor:pointer}
+.fun-mobile-close{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.2);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
 .sidebar-overlay{display:none;position:fixed;inset:0;top:62px;background:rgba(0,0,0,.35);z-index:89;cursor:pointer}
 .web-nav-mobile-btn{display:none;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:20px;align-items:center;justify-content:center}
 .web-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,var(--brand-900),var(--brand-700));z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px}
 .web-mobile-menu a{color:#fff;font-size:22px;font-weight:600;text-decoration:none}
 .web-mobile-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:22px;cursor:pointer;width:44px;height:44px;border-radius:50%}
+/* Hero slideshow */
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;z-index:0}
+.hero-slide.active{opacity:1}
+.hero-slide-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,53,71,.82) 0%,rgba(10,77,110,.7) 50%,rgba(2,132,199,.55) 100%);z-index:1}
+/* Mobile table fix - enquiries */
+@media(max-width:700px){
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+  table.tbl{min-width:580px}
+  .modal{max-height:92vh}
+  .grid-2{grid-template-columns:1fr!important}
+}
+/* Loading spinner */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
+/* Itinerary */
+.itin-day{background:#fff;border:1.5px solid #e8ecf0;border-radius:14px;margin-bottom:12px;overflow:hidden;transition:box-shadow .2s}
+.itin-day:hover{box-shadow:0 4px 16px rgba(0,0,0,.07)}
+.itin-day-header{background:linear-gradient(135deg,var(--brand-600),var(--brand-500));color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.itin-day-body{padding:16px;display:grid;gap:10px}
+.itin-timeline{position:relative;padding-left:28px}
+.itin-timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--brand-500),var(--brand-100))}
+.itin-timeline-dot{position:absolute;left:4px;width:14px;height:14px;border-radius:50%;background:var(--brand-600);border:2px solid #fff;box-shadow:0 0 0 2px var(--brand-200)}
+/* Package detail modal */
+.pkg-modal{background:#fff;border-radius:24px;max-width:760px;width:95%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.18);animation:scaleIn .25s}
+.pkg-modal-hero{height:300px;position:relative;overflow:hidden;border-radius:24px 24px 0 0}
+.pkg-modal-hero img,.pkg-modal-hero-bg{width:100%;height:100%;object-fit:cover}
+.pkg-modal-body{padding:28px}
+/* Search input */
+.search-wrap{position:relative;margin-bottom:16px}
+.search-wrap .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;pointer-events:none}
+.search-wrap input{padding-left:36px}
+/* Confirm modal */
+.confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:2000}
+.confirm-box{background:#fff;border-radius:16px;padding:28px;max-width:360px;width:90%;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.15)}
+/* Toast queue */
+.toast-stack{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:8px;z-index:2000}
 </style>
 </head>
 <body>
@@ -158,11 +313,42 @@ function enqToDB(e){
 }
 
 // ── Load all data from Supabase ───────────────────────────────────────────
-async function dbLoad(){
+async function dbLoad(only=null){
   try{
     if(SUPABASE_URL.includes('YOUR_PROJECT')){
       toast('\u26a0\ufe0f Set your Supabase URL & Key in the HTML file!');
       return;
+    }
+    if(only){
+      // Selective reload for performance (#13)
+      if(only==='enquiries'){
+        const{data,error}=await _sb.from('enquiries').select('*').order('created_at',{ascending:false});
+        if(error){toast('\u26a0\ufe0f DB Error: '+error.message);return;}
+        state.enquiries=(data||[]).map(dbToEnq);return;
+      }
+      if(only==='packages'){
+        const{data,error}=await _sb.from('packages').select('*').order('created_at');
+        if(error){toast('\u26a0\ufe0f DB Error: '+error.message);return;}
+        state.packages=(data||[]).map(x=>({...x,imageUrl:x.image_url}));return;
+      }
+      if(only==='destinations'){
+        const{data,error}=await _sb.from('destinations').select('*').order('created_at');
+        if(error){toast('\u26a0\ufe0f DB Error: '+error.message);return;}
+        state.destinations=(data||[]).map(x=>({...x,imageUrl:x.image_url}));return;
+      }
+      if(only==='staff'||only==='branches'){
+        const[b,s]=await Promise.all([
+          _sb.from('branches').select('*').order('id'),
+          _sb.from('staff').select('*').order('id'),
+        ]);
+        if(b.error||s.error){toast('\u26a0\ufe0f DB Error');return;}
+        state.branches=b.data||[];
+        state.staff=s.data||[];
+        const masterUsers=state.users.filter(u=>u.role==='Master');
+        const staffUsers=(s.data||[]).filter(x=>x.username&&x.password).map(x=>({username:x.username,password:x.password,name:x.name,role:x.role||'Staff',staffId:x.id}));
+        state.users=[...masterUsers,...staffUsers];
+        return;
+      }
     }
     const[b,s,p,d,e]=await Promise.all([
       _sb.from('branches').select('*').order('id'),
@@ -186,8 +372,7 @@ async function dbLoad(){
     state.branches = b.data||[];
     state.staff    = s.data||[];
     state.packages = (p.data||[]).map(x=>({...x,imageUrl:x.image_url}));
-    state.destinations = d.data||[];
-    // Sync staff logins into state.users (keep master admin, add staff with credentials)
+    state.destinations = (d.data||[]).map(x=>({...x,imageUrl:x.image_url}));
     const masterUsers=state.users.filter(u=>u.role==='Master');
     const staffUsers=(s.data||[]).filter(x=>x.username&&x.password).map(x=>({username:x.username,password:x.password,name:x.name,role:x.role||'Staff',staffId:x.id}));
     state.users=[...masterUsers,...staffUsers];
@@ -237,6 +422,8 @@ create table if not exists enquiries(
   current_stage text default 'Enquiry Received',
   created_at timestamptz default now(), logs text[] default '{}'
 );
+-- ⚠️ IMPORTANT: Enable RLS and add policies before going live in production!
+-- The lines below disable RLS for quick setup only.
 -- Disable RLS for simplicity (add policies for production security)
 alter table branches    disable row level security;
 alter table staff       disable row level security;
@@ -253,7 +440,11 @@ const state={
   view:'website',page:'dashboard',subPage:null,sideOpen:window.innerWidth>700,
   selectedEnquiry:null,modal:null,
   editingBranch:null,editingStaff:null,editingPkg:null,editingDest:null,
+  pkgFormTab:'details', // 'details' | 'itinerary'
+  pkgItinerary:[], // [{day:1,title:'',activities:'',meals:'',stay:''}]
   loggedIn:false,user:null,
+  enquirySearch:'',
+  _loadingBtn:null,
   branches:[],
   staff:[],
   enquiries:[],
@@ -272,14 +463,32 @@ const VISA_STAGES=["Application Initiated","Documents Collection","Documents Pen
 const FLIGHT_STAGES=["Requirement Noted","Searching Flights","Options Shared","Awaiting Confirmation","Booking Initiated","Payment Pending","Ticket Booked","E-Ticket Shared","Completed"];
 const CONFIRMED_TASKS=["Follow Up","Booking Visa","Flight Ticket","Itinerary","Landing Booking"];
 
-const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const uid=()=>crypto.randomUUID?crypto.randomUUID():(Date.now().toString(36)+Math.random().toString(36).slice(2,7));
+// Confirmation dialog (#8)
+const _confirmCallbacks={};
+let _confirmId=0;
+function confirmAction(msg,onYes){
+  const id='cb'+(++_confirmId);
+  _confirmCallbacks[id]=onYes;
+  const ov=document.createElement('div');ov.className='confirm-overlay';ov.id='confirmOv'+id;
+  ov.innerHTML=`<div class="confirm-box"><div style="font-size:36px;margin-bottom:12px">⚠️</div><div style="font-size:16px;font-weight:700;margin-bottom:8px">Are you sure?</div><div style="font-size:14px;color:var(--slate-500);margin-bottom:24px">${msg}</div><div style="display:flex;gap:10px;justify-content:center"><button class="btn btn-outline" onclick="document.getElementById('confirmOv${id}').remove()">Cancel</button><button class="btn btn-danger" onclick="document.getElementById('confirmOv${id}').remove();_confirmCallbacks['${id}']&&_confirmCallbacks['${id}']()">Delete</button></div></div>`;
+  document.body.appendChild(ov);
+}
 const fmt=d=>d?new Date(d).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}):'\u2014';
 const daysDiff=d=>{if(!d)return 999;return Math.ceil((new Date(d)-new Date())/(864e5))};
 const esc=s=>s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';
 const num=n=>n?Number(n).toLocaleString('en-IN'):'0';
 function dueBadge(d){const diff=daysDiff(d);if(diff<0)return{label:'Overdue',color:'#ef4444',bg:'#fef2f2'};if(diff===0)return{label:'Due Today',color:'#f59e0b',bg:'#fffbeb'};if(diff<=5)return{label:diff+'d left',color:'#3b82f6',bg:'#eff6ff'};return{label:diff+'d left',color:'#22c55e',bg:'#f0fdf4'}}
 function getStats(){const e=state.enquiries;const ends=['Dropped','Received to Client','Delivered to Client','Completed'];return{total:e.length,active:e.filter(x=>!ends.includes(x.currentStage)).length,overdue:e.filter(x=>daysDiff(x.dueDate)<0).length,today:e.filter(x=>daysDiff(x.dueDate)===0).length,pkg:e.filter(x=>x.services?.includes('Packages')).length,passport:e.filter(x=>x.services?.includes('Passport')).length,visa:e.filter(x=>x.services?.includes('Visa')).length,flight:e.filter(x=>x.services?.includes('Flight Ticket')).length}}
-function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent='\u2713 '+msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+// ── Toast queue system (fix #11) ──────────────────────────────────────────
+let _toastContainer=null;
+function toast(msg){
+  if(!_toastContainer){_toastContainer=document.createElement('div');_toastContainer.className='toast-stack';document.body.appendChild(_toastContainer);}
+  const t=document.createElement('div');t.className='toast';
+  t.textContent=(msg.startsWith('\u274c')||msg.startsWith('\u26a0\ufe0f'))?msg:'\u2713 '+msg;
+  _toastContainer.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300)},2800);
+}
 
 function render(){
   if(state.view==='login')return renderLogin();
@@ -425,7 +634,7 @@ function renderChangePassword(){
   </div>`;
 }
 
-function doChangePassword(){
+async function doChangePassword(){
   const cur=$('#cp_current')?.value;
   const nw=$('#cp_new')?.value;
   const conf=$('#cp_confirm')?.value;
@@ -439,6 +648,11 @@ function doChangePassword(){
   if(!nw||nw.length<6){showErr('\u274c New password must be at least 6 characters.');return;}
   if(nw===cur){showErr('\u274c New password must be different from current password.');return;}
   if(nw!==conf){showErr('\u274c New password and confirm password do not match.');return;}
+  // Persist to Supabase if staff user (#3 fix)
+  if(user.staffId){
+    const{error}=await _sb.from('staff').update({password:nw}).eq('id',user.staffId);
+    if(error){showErr('\u274c Failed to save: '+error.message);return;}
+  }
   user.password=nw;
   state.user=user;
   okEl.textContent='\u2705 Password updated successfully!';
@@ -453,10 +667,16 @@ function doChangePassword(){
 // ── Supabase Storage image upload ────────────────────────────────
 async function uploadImage(bucket,file){
   const ext=file.name.split('.').pop().toLowerCase();
+  // Convert avif/webp to use as-is but warn
   const path=uid()+'.'+ext;
-  const{error}=await _sb.storage.from(bucket).upload(path,file,{upsert:true,contentType:file.type});
-  if(error)throw new Error(error.message);
+  console.log('Uploading to bucket:',bucket,'path:',path,'size:',file.size,'type:',file.type);
+  const{data:upData,error}=await _sb.storage.from(bucket).upload(path,file,{upsert:true,contentType:file.type});
+  if(error){
+    console.error('Storage upload error:',error);
+    throw new Error('Storage: '+error.message);
+  }
   const{data}=_sb.storage.from(bucket).getPublicUrl(path);
+  console.log('Upload success, public URL:',data.publicUrl);
   return data.publicUrl;
 }
 function previewPkgImage(){
@@ -476,6 +696,7 @@ function renderDashboard(s){
   const recent=[...state.enquiries].reverse().slice(0,8);
   const svcs=[{label:'Packages',count:s.pkg,color:'#3b82f6',icon:'\ud83e\uddf3'},{label:'Passport',count:s.passport,color:'#8b5cf6',icon:'\ud83d\udcd5'},{label:'Visa',count:s.visa,color:'#f59e0b',icon:'\ud83d\udcc4'},{label:'Flight Tickets',count:s.flight,color:'#ef4444',icon:'\u2708\ufe0f'}];
   return `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px"><div><h1 style="font-size:28px;font-weight:700">Dashboard</h1><p style="color:var(--slate-500);font-size:14px;margin-top:2px">Welcome back, ${state.user?.name||'Admin'}</p></div><button class="btn btn-primary btn-lg" onclick="state.modal='new_enquiry';render()">+ New Enquiry</button></div>
+  ${state.user?.role==='Master'&&SUPABASE_URL.includes('supabase.co')?`<div style="background:#fef9c3;border:1px solid #fde047;border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#713f12;display:flex;gap:10px;align-items:flex-start"><span style="font-size:18px">🔐</span><div><strong>Security reminder:</strong> Passwords are stored in plain text. For production, consider enabling Supabase Auth and Row Level Security (RLS) in your Supabase project settings.</div></div>`:''}
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:24px">${cards.map(c=>`<div class="stat-card card" style="background:${c.bg}"><div class="stat-icon" style="background:${c.ibg}">${c.icon}</div><div><div style="font-size:30px;font-weight:800">${c.value}</div><div style="font-size:12px;font-weight:500;color:var(--slate-500)">${c.label}</div></div></div>`).join('')}</div>
   <div class="grid grid-2" style="gap:16px"><div class="card"><h3 style="font-size:15px;font-weight:700;margin-bottom:16px">Service Distribution</h3>${svcs.map(sd=>`<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="font-size:20px">${sd.icon}</span><div style="flex:1"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;font-weight:500">${sd.label}</span><span style="font-size:13px;font-weight:700">${sd.count}</span></div><div style="height:8px;background:var(--slate-100);border-radius:4px;overflow:hidden"><div style="height:100%;width:${s.total?((sd.count/s.total)*100):0}%;background:${sd.color};border-radius:4px"></div></div></div></div>`).join('')}</div>
   <div class="card"><h3 style="font-size:15px;font-weight:700;margin-bottom:16px">Recent Enquiries</h3>${recent.length===0?'<div style="text-align:center;padding:40px;color:var(--slate-400)">No enquiries yet</div>':recent.map(e=>{const b=dueBadge(e.dueDate);return `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;background:var(--slate-50);margin-bottom:6px;cursor:pointer" onclick="state.page='enquiries';state.selectedEnquiry='${e.id}';render()"><div><div style="font-weight:600;font-size:13px">${esc(e.customerName)}</div><div style="font-size:11px;color:var(--slate-400)">${e.services?.join(', ')}</div></div><span class="badge" style="background:${b.bg};color:${b.color}">${b.label}</span></div>`}).join('')}</div></div>`;
@@ -487,7 +708,7 @@ function renderBranches(){
   <div class="card" style="margin-bottom:20px"><h3 style="font-size:15px;font-weight:700;margin-bottom:16px">${state.editingBranch?'Edit':'Add New'} Branch</h3>
   <div class="grid grid-2" style="gap:12px"><div><label class="label">Branch Name</label><input class="input" id="br_name"></div><div><label class="label">City</label><input class="input" id="br_city"></div><div><label class="label">Address</label><input class="input" id="br_address"></div><div><label class="label">Phone</label><input class="input" id="br_phone"></div></div>
   <div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-primary" onclick="saveBranch()">${state.editingBranch?'Update':'Add Branch'}</button>${state.editingBranch?'<button class="btn btn-outline" onclick="state.editingBranch=null;render()">Cancel</button>':''}</div></div>
-  <div class="card"><table class="tbl"><thead><tr><th>Branch</th><th>City</th><th>Address</th><th>Phone</th><th>Actions</th></tr></thead><tbody>${state.branches.map(b=>`<tr><td style="font-weight:600">${esc(b.name)}</td><td>${esc(b.city)}</td><td>${esc(b.address)}</td><td>${esc(b.phone)}</td><td><div style="display:flex;gap:6px"><button class="btn btn-outline btn-sm" onclick="editBranch(${b.id})">Edit</button><button class="btn btn-danger btn-sm" onclick="deleteBranch(${b.id})">Delete</button></div></td></tr>`).join('')}</tbody></table></div>`;
+  <div class="card"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Branch</th><th>City</th><th>Address</th><th>Phone</th><th>Actions</th></tr></thead><tbody>${state.branches.map(b=>`<tr><td style="font-weight:600">${esc(b.name)}</td><td>${esc(b.city)}</td><td>${esc(b.address)}</td><td>${esc(b.phone)}</td><td><div style="display:flex;gap:6px"><button class="btn btn-outline btn-sm" onclick="editBranch(${b.id})">Edit</button><button class="btn btn-danger btn-sm" onclick="deleteBranch(${b.id})">Delete</button></div></td></tr>`).join('')}</tbody></table></div></div>`;
 }
 
 /* ======= STAFF ======= */
@@ -497,17 +718,31 @@ function renderStaff(){
   <div class="grid grid-3" style="gap:12px"><div><label class="label">Full Name</label><input class="input" id="st_name"></div><div><label class="label">Role</label><select class="input" id="st_role"><option>Staff</option><option>Master</option></select></div><div><label class="label">Branch</label><select class="input" id="st_branch"><option value="">Select...</option>${state.branches.map(b=>`<option value="${b.id}">${esc(b.name)}</option>`).join('')}</select></div><div><label class="label">Phone</label><input class="input" id="st_phone"></div><div><label class="label">Email</label><input class="input" id="st_email"></div><div><label class="label">Login Username</label><input class="input" id="st_username" placeholder="e.g. ravi123"></div><div><label class="label">Login Password</label><input class="input" type="password" id="st_password" placeholder="${state.editingStaff?'Leave blank to keep':'Set password'}"></div></div>
   <div style="background:var(--brand-50);border:1px solid var(--brand-100);border-radius:10px;padding:12px 16px;margin-top:12px;font-size:13px;color:var(--brand-700)">💡 Username & Password allow this staff member to log in to the admin dashboard.</div>
   <div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-primary" onclick="saveStaff()">${state.editingStaff?'Update':'Add Staff'}</button>${state.editingStaff?'<button class="btn btn-outline" onclick="state.editingStaff=null;render()">Cancel</button>':''}</div></div>
-  <div class="card"><table class="tbl"><thead><tr><th>Name</th><th>Role</th><th>Branch</th><th>Phone</th><th>Username</th><th>Login</th><th>Actions</th></tr></thead><tbody>${state.staff.map(s=>{const br=state.branches.find(b=>b.id===s.branch);return `<tr><td style="font-weight:600">${esc(s.name)}</td><td><span class="badge" style="background:${s.role==='Master'?'var(--amber-100)':'var(--brand-100)'};color:${s.role==='Master'?'#d97706':'var(--brand-600)'}">${s.role}</span></td><td>${br?esc(br.name):'\u2014'}</td><td>${esc(s.phone)}</td><td style="font-size:13px;color:var(--slate-500)">${esc(s.username)||'\u2014'}</td><td><span class="badge" style="background:${s.username?'var(--green-100)':'var(--slate-100)'};color:${s.username?'var(--green-600)':'var(--slate-400)'}">${s.username?'✅ Can Login':'❌ No Access'}</span></td><td><div style="display:flex;gap:6px"><button class="btn btn-outline btn-sm" onclick="editStaff(${s.id})">Edit</button><button class="btn btn-danger btn-sm" onclick="deleteStaff(${s.id})">Delete</button></div></td></tr>`}).join('')}</tbody></table></div>`;
+  <div class="card"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Name</th><th>Role</th><th>Branch</th><th>Phone</th><th>Username</th><th>Login</th><th>Actions</th></tr></thead><tbody>${state.staff.map(s=>{const br=state.branches.find(b=>b.id===s.branch);return `<tr><td style="font-weight:600">${esc(s.name)}</td><td><span class="badge" style="background:${s.role==='Master'?'var(--amber-100)':'var(--brand-100)'};color:${s.role==='Master'?'#d97706':'var(--brand-600)'}">${s.role}</span></td><td>${br?esc(br.name):'\u2014'}</td><td>${esc(s.phone)}</td><td style="font-size:13px;color:var(--slate-500)">${esc(s.username)||'\u2014'}</td><td><span class="badge" style="background:${s.username?'var(--green-100)':'var(--slate-100)'};color:${s.username?'var(--green-600)':'var(--slate-400)'}">${s.username?'✅ Can Login':'❌ No Access'}</span></td><td><div style="display:flex;gap:6px"><button class="btn btn-outline btn-sm" onclick="editStaff(${s.id})">Edit</button><button class="btn btn-danger btn-sm" onclick="deleteStaff(${s.id})">Delete</button></div></td></tr>`}).join('')}</tbody></table></div>`;
 }
 
 /* ======= ENQUIRIES ======= */
 function renderEnquiries(){
   const tabs=[{key:null,label:'All'},{key:'preparation',label:'In Preparation'},{key:'itinerary_sent',label:'Itinerary Sent'},{key:'discussion',label:'Discussion'},{key:'confirmed',label:'Confirmed'},{key:'dropped',label:'Dropped'}];
   const map={preparation:'In Preparation',itinerary_sent:'Itinerary Sent',discussion:'Itinerary Discussion',confirmed:'Confirmed',dropped:'Dropped'};
-  const filtered=state.subPage?state.enquiries.filter(e=>e.pkgStage===map[state.subPage]):state.enquiries;
-  return `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h1 style="font-size:28px;font-weight:700">\ud83d\udccb Enquiries</h1><button class="btn btn-primary" onclick="state.modal='new_enquiry';render()">+ New Enquiry</button></div>
-  <div style="display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap">${tabs.map(t=>`<button class="tab-btn${state.subPage===t.key?' active':''}" onclick="state.subPage=${t.key===null?'null':"'"+t.key+"'"};render()">${t.label}</button>`).join('')}</div>
-  <div class="card">${filtered.length===0?'<div style="text-align:center;padding:40px;color:var(--slate-400)">No enquiries found</div>':`<table class="tbl"><thead><tr><th>Customer</th><th>Phone</th><th>Services</th><th>Assigned</th><th>Stage</th><th>Due</th><th>Status</th></tr></thead><tbody>${[...filtered].reverse().map(e=>{const b=dueBadge(e.dueDate);const st=state.staff.find(s=>s.id===Number(e.assignedTo));return `<tr onclick="state.selectedEnquiry='${e.id}';render()"><td style="font-weight:600">${esc(e.customerName)}</td><td>${esc(e.phone)}</td><td>${e.services?.map(s=>`<span class="badge" style="background:var(--brand-100);color:var(--brand-600);font-size:10px;margin:1px">${s}</span>`).join(' ')}</td><td>${st?esc(st.name):'\u2014'}</td><td style="font-size:12px;font-weight:600">${esc(e.currentStage)||'\u2014'}</td><td>${fmt(e.dueDate)}</td><td><span class="badge" style="background:${b.bg};color:${b.color}">${b.label}</span></td></tr>`}).join('')}</tbody></table>`}</div>`;
+  const search=(state.enquirySearch||'').toLowerCase();
+  let filtered=state.subPage?state.enquiries.filter(e=>e.pkgStage===map[state.subPage]):state.enquiries;
+  if(search)filtered=filtered.filter(e=>(e.customerName||'').toLowerCase().includes(search)||(e.phone||'').includes(search));
+  // Pagination (#9)
+  const PAGE_SIZE=25;
+  state._enqPage=state._enqPage||0;
+  const totalPages=Math.ceil(filtered.length/PAGE_SIZE);
+  if(state._enqPage>=totalPages)state._enqPage=Math.max(0,totalPages-1);
+  const paged=[...filtered].reverse().slice(state._enqPage*PAGE_SIZE,(state._enqPage+1)*PAGE_SIZE);
+  const paginationHtml=totalPages>1?`<div style="display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px">
+    <button class="btn btn-outline btn-sm" onclick="state._enqPage=Math.max(0,state._enqPage-1);render()" ${state._enqPage===0?'disabled':''}>← Prev</button>
+    <span style="font-size:13px;color:var(--slate-500)">Page ${state._enqPage+1} of ${totalPages} &nbsp;(${filtered.length} total)</span>
+    <button class="btn btn-outline btn-sm" onclick="state._enqPage=Math.min(${totalPages-1},state._enqPage+1);render()" ${state._enqPage>=totalPages-1?'disabled':''}>Next →</button>
+  </div>`:'';
+  return `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h1 style="font-size:28px;font-weight:700">📋 Enquiries</h1><button class="btn btn-primary" onclick="state.modal='new_enquiry';render()">+ New Enquiry</button></div>
+  <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap">${tabs.map(t=>`<button class="tab-btn${state.subPage===t.key?' active':''}" onclick="state.subPage=${t.key===null?'null':"'"+t.key+"'"};state._enqPage=0;render()">${t.label}</button>`).join('')}</div>
+  <div class="search-wrap" style="margin-bottom:16px"><span class="search-icon">🔍</span><input class="input" placeholder="Search by name or phone…" value="${esc(state.enquirySearch||'')}" oninput="state.enquirySearch=this.value;state._enqPage=0;render()" style="padding-left:36px"></div>
+  <div class="card"><div class="tbl-wrap">${filtered.length===0?'<div style="text-align:center;padding:40px;color:var(--slate-400)">No enquiries found</div>':`<table class="tbl"><thead><tr><th>Customer</th><th>Phone</th><th>Services</th><th>Assigned</th><th>Stage</th><th>Due</th><th>Status</th></tr></thead><tbody>${paged.map(e=>{const b=dueBadge(e.dueDate);const st=state.staff.find(s=>s.id===Number(e.assignedTo));return `<tr onclick="state.selectedEnquiry='${e.id}';render()"><td style="font-weight:600">${esc(e.customerName)}</td><td>${esc(e.phone)}</td><td>${e.services?.map(s=>`<span class="badge" style="background:var(--brand-100);color:var(--brand-600);font-size:10px;margin:1px">${s}</span>`).join(' ')}</td><td>${st?esc(st.name):'—'}</td><td style="font-size:12px;font-weight:600">${esc(e.currentStage)||'—'}</td><td style="white-space:nowrap">${fmt(e.dueDate)}</td><td><span class="badge" style="background:${b.bg};color:${b.color}">${b.label}</span></td></tr>`}).join('')}</tbody></table>`}</div>${paginationHtml}</div>`;
 }
 
 /* ======= ENQUIRY DETAIL ======= */
@@ -515,16 +750,40 @@ function renderEnquiryDetail(){
   const e=state.enquiries.find(x=>x.id===state.selectedEnquiry);
   if(!e){state.selectedEnquiry=null;return renderEnquiries()}
   const b=dueBadge(e.dueDate);const staff=state.staff.find(s=>s.id===Number(e.assignedTo));
-  let h=`<button class="btn btn-outline" onclick="state.selectedEnquiry=null;render()" style="margin-bottom:16px">\u2190 Back</button>
-  <div class="card" style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><h2 style="font-size:24px;font-weight:700">${esc(e.customerName)}</h2><p style="color:var(--slate-500);font-size:14px;margin-top:4px">\ud83d\udcde ${esc(e.phone)} &nbsp;\u00b7&nbsp; Created: ${fmt(e.createdAt)}</p></div><span class="badge" style="background:${b.bg};color:${b.color};font-size:13px;padding:8px 16px">${b.label}</span></div>
-  <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">${e.services?.map(s=>`<span class="badge" style="background:var(--brand-100);color:var(--brand-600);padding:6px 14px;font-size:12px">${s}</span>`).join('')}${e.tripType?`<span class="badge" style="background:var(--amber-100);color:#d97706;padding:6px 14px;font-size:12px">${e.tripType}</span>`:''}</div>
-  ${staff?`<p style="margin-top:8px;font-size:13px;color:var(--slate-500)">Assigned to: <strong>${esc(staff.name)}</strong></p>`:''}</div>`;
-  if(e.services?.includes('Packages')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">\ud83e\uddf3 Package Details</h3><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px"><div><span class="label">Location</span><div style="font-weight:500">${esc(e.pkgLocation)||'\u2014'}</div></div><div><span class="label">Packs</span><div style="font-weight:500">${e.pkgPacks||'\u2014'}</div></div><div><span class="label">Travel Date</span><div style="font-weight:500">${e.pkgFlexDates?'Flexible':fmt(e.pkgTravelDate)}</div></div><div><span class="label">Hotel</span><div style="font-weight:500">${esc(e.pkgHotel)||'\u2014'}</div></div><div><span class="label">Meal Plan</span><div style="font-weight:500">${esc(e.pkgMeal)||'\u2014'}</div></div></div>${renderTracker('Packages',PKG_STAGES,e.pkgStage)}${e.pkgStage==='Confirmed'?`<div style="margin-top:16px;padding:16px;background:var(--green-50);border-radius:10px;border:1px solid #bbf7d0"><h4 style="font-size:14px;font-weight:700;color:var(--green-600);margin-bottom:8px">\u2705 Confirmed \u2014 Tasks</h4><div style="display:flex;gap:8px;flex-wrap:wrap">${CONFIRMED_TASKS.map(t=>`<span class="badge" style="background:var(--green-100);color:var(--green-600);padding:6px 14px">${t}</span>`).join('')}</div></div>`:''}</div>`}
-  if(e.services?.includes('Passport')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">\ud83d\udcd5 Passport</h3><div style="margin-bottom:12px"><span class="label">Type: </span><span style="font-weight:500">${esc(e.passportType)||'New'}</span></div>${renderTracker('Passport',PASSPORT_STAGES,e.passportStage)}<div style="margin-top:12px"><label class="label">Notes</label><textarea class="input" rows="2" id="passport_notes">${esc(e.passportNotes||'')}</textarea><button class="btn btn-sm btn-outline" style="margin-top:8px" onclick="saveServiceNotes('${e.id}','passportNotes','passport_notes')">Save</button></div></div>`}
-  if(e.services?.includes('Visa')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">\ud83d\udcc4 Visa</h3>${renderTracker('Visa',VISA_STAGES,e.visaStage)}<div style="margin-top:12px"><label class="label">Notes</label><textarea class="input" rows="2" id="visa_notes">${esc(e.visaNotes||'')}</textarea><button class="btn btn-sm btn-outline" style="margin-top:8px" onclick="saveServiceNotes('${e.id}','visaNotes','visa_notes')">Save</button></div></div>`}
-  if(e.services?.includes('Flight Ticket')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">\u2708\ufe0f Flight Ticket</h3>${renderTracker('Flight Ticket',FLIGHT_STAGES,e.flightStage)}<div style="margin-top:12px"><label class="label">Notes</label><textarea class="input" rows="2" id="flight_notes">${esc(e.flightNotes||'')}</textarea><button class="btn btn-sm btn-outline" style="margin-top:8px" onclick="saveServiceNotes('${e.id}','flightNotes','flight_notes')">Save</button></div></div>`}
-  h+=`<div class="card"><h3 style="font-weight:700;margin-bottom:12px">\ud83d\udcdd Activity Log</h3><div style="display:flex;gap:8px;margin-bottom:16px"><input class="input" placeholder="Add a note..." id="log_note" onkeydown="if(event.key==='Enter')addLogNote('${e.id}')"><button class="btn btn-primary" onclick="addLogNote('${e.id}')">Add</button></div><div style="max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:6px">${[...(e.logs||[])].reverse().map(l=>`<div style="padding:8px 12px;background:var(--slate-50);border-radius:8px;font-size:13px;border-left:3px solid var(--brand-500)">${esc(l)}</div>`).join('')}</div></div>`;
+  const waNum=(e.phone||'').replace(/\D/g,'');
+  const waLink=`https://wa.me/91${waNum}?text=${encodeURIComponent('Hi '+e.customerName+', this is The FunTours. Regarding your enquiry for '+( e.services?.join(', ')||'travel services')+'.')}`;
+  let h=`<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+    <button class="btn btn-outline" onclick="state.selectedEnquiry=null;render()">\u2190 Back</button>
+    <a href="${waLink}" target="_blank" class="btn btn-pill" style="background:#25d366;color:#fff;gap:6px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.856L.057 23.882a.5.5 0 00.614.612l6.101-1.457A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.652-.502-5.178-1.378l-.36-.214-3.742.893.935-3.651-.233-.374A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </a>
+    <button class="btn btn-danger btn-sm btn-pill" onclick="deleteEnquiry('${e.id}')">🗑 Delete</button>
+  </div>
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+      <div><h2 style="font-size:22px;font-weight:700">${esc(e.customerName)}</h2>
+      <p style="color:var(--slate-500);font-size:14px;margin-top:4px">📞 ${esc(e.phone)} &nbsp;·&nbsp; Created: ${fmt(e.createdAt)}</p></div>
+      <span class="badge" style="background:${b.bg};color:${b.color};font-size:13px;padding:8px 16px">${b.label}</span>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">${e.services?.map(s=>`<span class="badge" style="background:var(--brand-100);color:var(--brand-600);padding:6px 14px;font-size:12px">${s}</span>`).join('')}${e.tripType?`<span class="badge" style="background:var(--amber-100);color:#d97706;padding:6px 14px;font-size:12px">${e.tripType}</span>`:''}</div>
+    ${staff?`<p style="margin-top:8px;font-size:13px;color:var(--slate-500)">Assigned to: <strong>${esc(staff.name)}</strong></p>`:''}
+  </div>`;
+  if(e.services?.includes('Packages')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">📦 Package Details</h3><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:16px"><div><span class="label">Location</span><div style="font-weight:500">${esc(e.pkgLocation)||'—'}</div></div><div><span class="label">Packs</span><div style="font-weight:500">${e.pkgPacks||'—'}</div></div><div><span class="label">Travel Date</span><div style="font-weight:500">${e.pkgFlexDates?'Flexible':fmt(e.pkgTravelDate)}</div></div><div><span class="label">Hotel</span><div style="font-weight:500">${esc(e.pkgHotel)||'—'}</div></div><div><span class="label">Meal Plan</span><div style="font-weight:500">${esc(e.pkgMeal)||'—'}</div></div></div>${renderTracker('Packages',PKG_STAGES,e.pkgStage)}${e.pkgStage==='Confirmed'?`<div style="margin-top:16px;padding:16px;background:var(--green-50);border-radius:10px;border:1px solid #bbf7d0"><h4 style="font-size:14px;font-weight:700;color:var(--green-600);margin-bottom:8px">✅ Confirmed — Tasks</h4><div style="display:flex;gap:8px;flex-wrap:wrap">${CONFIRMED_TASKS.map(t=>`<span class="badge" style="background:var(--green-100);color:var(--green-600);padding:6px 14px">${t}</span>`).join('')}</div></div>`:''}</div>`}
+  if(e.services?.includes('Passport')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">📕 Passport</h3><div style="margin-bottom:12px"><span class="label">Type: </span><span style="font-weight:500">${esc(e.passportType)||'New'}</span></div>${renderTracker('Passport',PASSPORT_STAGES,e.passportStage)}<div style="margin-top:12px"><label class="label">Notes</label><textarea class="input" rows="2" id="passport_notes">${esc(e.passportNotes||'')}</textarea><button class="btn btn-sm btn-outline" style="margin-top:8px" onclick="saveServiceNotes('${e.id}','passportNotes','passport_notes')">Save</button></div></div>`}
+  if(e.services?.includes('Visa')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">📄 Visa</h3>${renderTracker('Visa',VISA_STAGES,e.visaStage)}<div style="margin-top:12px"><label class="label">Notes</label><textarea class="input" rows="2" id="visa_notes">${esc(e.visaNotes||'')}</textarea><button class="btn btn-sm btn-outline" style="margin-top:8px" onclick="saveServiceNotes('${e.id}','visaNotes','visa_notes')">Save</button></div></div>`}
+  if(e.services?.includes('Flight Ticket')){h+=`<div class="card" style="margin-bottom:16px"><h3 style="font-weight:700;margin-bottom:12px">✈️ Flight Ticket</h3>${renderTracker('Flight Ticket',FLIGHT_STAGES,e.flightStage)}<div style="margin-top:12px"><label class="label">Notes</label><textarea class="input" rows="2" id="flight_notes">${esc(e.flightNotes||'')}</textarea><button class="btn btn-sm btn-outline" style="margin-top:8px" onclick="saveServiceNotes('${e.id}','flightNotes','flight_notes')">Save</button></div></div>`}
+  h+=`<div class="card"><h3 style="font-weight:700;margin-bottom:12px">📝 Activity Log</h3><div style="display:flex;gap:8px;margin-bottom:16px"><input class="input" placeholder="Add a note…" id="log_note" onkeydown="if(event.key==='Enter')addLogNote('${e.id}')"><button class="btn btn-primary" onclick="addLogNote('${e.id}')">Add</button></div><div style="max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:6px">${[...(e.logs||[])].reverse().map(l=>`<div style="padding:8px 12px;background:var(--slate-50);border-radius:8px;font-size:13px;border-left:3px solid var(--brand-500)">${esc(l)}</div>`).join('')}</div></div>`;
   return h;
+}
+
+async function deleteEnquiry(id){
+  confirmAction('This will permanently delete this enquiry and all its data.',async function(){
+    try{const{error}=await _sb.from('enquiries').delete().eq('id',id);
+    if(error){toast('\u274c '+error.message);return;}
+    state.selectedEnquiry=null;toast('Enquiry deleted');await dbLoad('enquiries');render();}
+    catch(e){toast('\u274c '+e.message);}
+  });
 }
 
 function renderTracker(service,stages,current){
@@ -536,18 +795,103 @@ function renderTracker(service,stages,current){
 function renderFiltered(){
   const titles={f_overdue:'\ud83d\udd34 Overdue',f_today:'\ud83d\udfe1 Due Today',f_pkg:'\ud83e\uddf3 Packages',f_passport:'\ud83d\udcd5 Passport',f_visa:'\ud83d\udcc4 Visa',f_flight:'\u2708\ufe0f Flights'};
   let list;switch(state.page){case 'f_overdue':list=state.enquiries.filter(e=>daysDiff(e.dueDate)<0);break;case 'f_today':list=state.enquiries.filter(e=>daysDiff(e.dueDate)===0);break;case 'f_pkg':list=state.enquiries.filter(e=>e.services?.includes('Packages'));break;case 'f_passport':list=state.enquiries.filter(e=>e.services?.includes('Passport'));break;case 'f_visa':list=state.enquiries.filter(e=>e.services?.includes('Visa'));break;case 'f_flight':list=state.enquiries.filter(e=>e.services?.includes('Flight Ticket'));break;default:list=state.enquiries}
-  return `<h1 style="font-size:28px;font-weight:700;margin-bottom:24px">${titles[state.page]||'Filtered'}</h1><div class="card">${list.length===0?'<div style="text-align:center;padding:40px;color:var(--slate-400)">No items</div>':`<table class="tbl"><thead><tr><th>Customer</th><th>Phone</th><th>Services</th><th>Stage</th><th>Due</th></tr></thead><tbody>${list.map(e=>{const b=dueBadge(e.dueDate);return `<tr onclick="state.page='enquiries';state.selectedEnquiry='${e.id}';render()"><td style="font-weight:600">${esc(e.customerName)}</td><td>${esc(e.phone)}</td><td>${e.services?.join(', ')}</td><td>${esc(e.currentStage)}</td><td><span class="badge" style="background:${b.bg};color:${b.color}">${b.label}</span></td></tr>`}).join('')}</tbody></table>`}</div>`;
+  return `<h1 style="font-size:28px;font-weight:700;margin-bottom:24px">${titles[state.page]||'Filtered'}</h1><div class="card"><div class="tbl-wrap">${list.length===0?'<div style="text-align:center;padding:40px;color:var(--slate-400)">No items</div>':`<table class="tbl"><thead><tr><th>Customer</th><th>Phone</th><th>Services</th><th>Stage</th><th>Due</th></tr></thead><tbody>${list.map(e=>{const b=dueBadge(e.dueDate);return `<tr onclick="state.page='enquiries';state.selectedEnquiry='${e.id}';render()"><td style="font-weight:600">${esc(e.customerName)}</td><td>${esc(e.phone)}</td><td>${e.services?.join(', ')}</td><td>${esc(e.currentStage)}</td><td><span class="badge" style="background:${b.bg};color:${b.color}">${b.label}</span></td></tr>`}).join('')}</tbody></table>`}</div></div>`;
 }
 
 /* ======= PACKAGES ADMIN ======= */
 function renderPackagesAdmin(){
-  return `<h1 style="font-size:28px;font-weight:700;margin-bottom:24px">\ud83d\udce6 Manage Packages</h1>
-  <div class="card" style="margin-bottom:20px"><h3 style="font-size:15px;font-weight:700;margin-bottom:16px">${state.editingPkg?'Edit':'Create New'} Package</h3>
-  <div class="grid grid-3" style="gap:12px"><div><label class="label">Title</label><input class="input" id="pk_title"></div><div><label class="label">Type</label><select class="input" id="pk_type"><option>Domestic</option><option>International</option></select></div><div><label class="label">Location</label><input class="input" id="pk_location"></div><div><label class="label">Days</label><input class="input" type="number" id="pk_days"></div><div><label class="label">Price (\u20b9)</label><input class="input" type="number" id="pk_price"></div><div><label class="label">Package Image</label><input type="file" accept="image/*" id="pk_image" onchange="previewPkgImage()" class="input" style="padding:6px;cursor:pointer"><div id="pk_img_preview"></div></div></div><div id="pk_current_img" style="margin-top:6px"></div>
-  <div style="margin-top:12px"><label class="label">Description</label><textarea class="input" rows="2" id="pk_desc"></textarea></div>
-  <div style="margin-top:12px"><label class="label">Highlights (comma separated)</label><input class="input" id="pk_highlights"></div>
-  <div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-primary" onclick="savePackage()">${state.editingPkg?'Update':'Create Package'}</button>${state.editingPkg?'<button class="btn btn-outline" onclick="state.editingPkg=null;render()">Cancel</button>':''}</div></div>
-  <div class="grid grid-auto" style="gap:16px">${state.packages.map(p=>`<div class="card" style="padding:0;overflow:hidden"><div style="height:140px;background:linear-gradient(135deg,var(--brand-900),var(--brand-500));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">${p.imageUrl?`<img src="${esc(p.imageUrl)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">`:'<span style="font-size:56px">\ud83c\udf0d</span>'}<span class="badge" style="position:absolute;top:10px;right:10px;background:${p.type==='Domestic'?'var(--green-100)':'var(--brand-100)'};color:${p.type==='Domestic'?'var(--green-600)':'var(--brand-600)'}">${p.type}</span></div><div style="padding:18px"><h3 style="font-weight:700;font-size:17px">${esc(p.title)}</h3><p style="font-size:13px;color:var(--slate-500);margin-top:4px">${esc(p.location)} \u00b7 ${p.days} Days</p><p style="font-size:22px;font-weight:800;color:var(--brand-600);margin-top:8px">\u20b9${num(p.price)}</p><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-outline btn-sm" onclick="editPackage('${p.id}')">Edit</button><button class="btn btn-danger btn-sm" onclick="deletePackage('${p.id}')">Delete</button></div></div></div>`).join('')}</div>`;
+  const tab=state.pkgFormTab||'details';
+  const itin=state.pkgItinerary||[];
+  return `<h1 style="font-size:28px;font-weight:700;margin-bottom:24px">📦 Manage Packages</h1>
+  <div class="card" style="margin-bottom:20px">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:16px">${state.editingPkg?'Edit':'Create New'} Package</h3>
+    <!-- TABS -->
+    <div style="display:flex;gap:6px;margin-bottom:20px;border-bottom:2px solid #f0f0f0;padding-bottom:0">
+      <button onclick="state.pkgFormTab='details';render()" style="padding:9px 20px;border:none;background:none;font-weight:700;font-size:13px;cursor:pointer;border-bottom:${tab==='details'?'2px solid var(--brand-600)':'2px solid transparent'};color:${tab==='details'?'var(--brand-600)':'var(--slate-500)'};margin-bottom:-2px;font-family:inherit">📋 Package Details</button>
+      <button onclick="state.pkgFormTab='itinerary';render()" style="padding:9px 20px;border:none;background:none;font-weight:700;font-size:13px;cursor:pointer;border-bottom:${tab==='itinerary'?'2px solid var(--brand-600)':'2px solid transparent'};color:${tab==='itinerary'?'var(--brand-600)':'var(--slate-500)'};margin-bottom:-2px;font-family:inherit">🗺️ Itinerary ${itin.length>0?`<span style="background:var(--brand-600);color:#fff;border-radius:20px;padding:1px 8px;font-size:11px;margin-left:4px">${itin.length} days</span>`:''}
+      </button>
+    </div>
+
+    <!-- DETAILS TAB -->
+    <div style="display:${tab==='details'?'block':'none'}">
+      <div class="grid grid-3" style="gap:12px">
+        <div><label class="label">Title</label><input class="input" id="pk_title"></div>
+        <div><label class="label">Type</label><select class="input" id="pk_type"><option>Domestic</option><option>International</option></select></div>
+        <div><label class="label">Location</label><input class="input" id="pk_location"></div>
+        <div><label class="label">Days</label><input class="input" type="number" id="pk_days" min="1" oninput="syncItineraryDays()"></div>
+        <div><label class="label">Price (₹)</label><input class="input" type="number" id="pk_price"></div>
+        <div><label class="label">Package Image</label><input type="file" accept="image/*" id="pk_image" onchange="previewPkgImage()" class="input" style="padding:6px;cursor:pointer"><div id="pk_img_preview"></div></div>
+      </div>
+      <div id="pk_current_img" style="margin-top:6px"></div>
+      <div style="margin-top:12px"><label class="label">Description</label><textarea class="input" rows="2" id="pk_desc"></textarea></div>
+      <div style="margin-top:12px"><label class="label">Highlights (comma separated)</label><input class="input" id="pk_highlights"></div>
+    </div>
+
+    <!-- ITINERARY TAB -->
+    <div style="display:${tab==='itinerary'?'block':'none'}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <p style="font-size:13px;color:var(--slate-500)">Build a day-by-day itinerary for this package</p>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline btn-sm" onclick="addItineraryDay()">+ Add Day</button>
+          <button class="btn btn-outline btn-sm" onclick="syncItineraryDays(true)">↺ Sync from Days</button>
+        </div>
+      </div>
+      ${itin.length===0?`
+      <div style="text-align:center;padding:48px 20px;background:var(--slate-50);border-radius:14px;border:2px dashed var(--slate-200)">
+        <div style="font-size:3rem;margin-bottom:12px">🗺️</div>
+        <div style="font-weight:700;font-size:15px;color:var(--slate-500);margin-bottom:8px">No itinerary yet</div>
+        <p style="font-size:13px;color:var(--slate-400);margin-bottom:16px">Click "Add Day" or set the Days count and click "Sync from Days"</p>
+        <button class="btn btn-primary" onclick="addItineraryDay()">+ Add Day 1</button>
+      </div>`:
+      itin.map((day,i)=>`
+      <div class="itin-day" id="itin_day_${i}">
+        <div class="itin-day-header" onclick="toggleItinDay(${i})">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="background:rgba(255,255,255,.25);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">${day.day}</span>
+            <span style="font-weight:700">Day ${day.day}: ${esc(day.title)||'<span style="opacity:.6;font-weight:400;font-style:italic">Add title...</span>'}</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button onclick="event.stopPropagation();removeItinDay(${i})" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:6px;padding:3px 8px;cursor:pointer;font-size:12px">✕</button>
+            <span style="font-size:12px;opacity:.75">▼</span>
+          </div>
+        </div>
+        <div class="itin-day-body" id="itin_body_${i}">
+          <div><label class="label">Day Title</label><input class="input" id="itin_title_${i}" value="${esc(day.title||'')}" placeholder="e.g. Arrival & City Tour" oninput="updateItinDay(${i})"></div>
+          <div><label class="label">🎯 Activities</label><textarea class="input" rows="3" id="itin_act_${i}" placeholder="Describe the day's activities, sightseeing, experiences..." oninput="updateItinDay(${i})">${esc(day.activities||'')}</textarea></div>
+          <div class="grid grid-3" style="gap:10px">
+            <div><label class="label">🍽️ Meals</label><select class="input" id="itin_meal_${i}" onchange="updateItinDay(${i})"><option value="">Select...</option><option ${day.meals==='Breakfast'?'selected':''}>Breakfast</option><option ${day.meals==='Breakfast + Lunch'?'selected':''}>Breakfast + Lunch</option><option ${day.meals==='Breakfast + Dinner'?'selected':''}>Breakfast + Dinner</option><option ${day.meals==='All Meals'?'selected':''}>All Meals</option><option ${day.meals==='No Meals'?'selected':''}>No Meals</option></select></div>
+            <div><label class="label">🏨 Stay</label><input class="input" id="itin_stay_${i}" value="${esc(day.stay||'')}" placeholder="Hotel name / city" oninput="updateItinDay(${i})"></div>
+            <div><label class="label">🚗 Transport</label><input class="input" id="itin_transport_${i}" value="${esc(day.transport||'')}" placeholder="e.g. AC Bus, Flight" oninput="updateItinDay(${i})"></div>
+          </div>
+        </div>
+      </div>`).join('')}
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:20px">
+      <button class="btn btn-primary" onclick="savePackage()">${state.editingPkg?'Update Package':'Create Package'}</button>
+      ${state.editingPkg?'<button class="btn btn-outline" onclick="state.editingPkg=null;state.pkgItinerary=[];state.pkgFormTab=\'details\';render()">Cancel</button>':''}
+    </div>
+  </div>
+
+  <!-- Package Cards -->
+  <div class="grid grid-auto" style="gap:16px">${state.packages.map(p=>`
+    <div class="card" style="padding:0;overflow:hidden;cursor:pointer" onclick="showPkgAdminDetail('${p.id}')">
+      <div style="height:160px;${p.imageUrl?`background-image:url('${esc(p.imageUrl)}');background-size:cover;background-position:center`:'background:linear-gradient(135deg,#0f2942,#0f6b8a)'};position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center">
+        ${p.imageUrl?'':'<span style="font-size:56px">🌍</span>'}
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)"></div>
+        <span class="badge" style="position:absolute;top:10px;right:10px;background:${p.type==='Domestic'?'var(--green-100)':'var(--brand-100)'};color:${p.type==='Domestic'?'var(--green-600)':'var(--brand-600)'}">${p.type}</span>
+        ${(p.itinerary||[]).length>0?`<span style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;backdrop-filter:blur(4px)">🗺️ ${p.itinerary.length}-Day Itinerary</span>`:''}
+      </div>
+      <div style="padding:16px">
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:4px">${esc(p.title)}</h3>
+        <p style="font-size:12px;color:var(--slate-500);margin-bottom:8px">${esc(p.location)} · ${p.days} Days · ₹${num(p.price)}</p>
+        <div style="display:flex;gap:6px" onclick="event.stopPropagation()">
+          <button class="btn btn-outline btn-sm" onclick="editPackage('${p.id}')">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deletePackage('${p.id}')">Delete</button>
+        </div>
+      </div>
+    </div>`).join('')}
+  </div>`;
 }
 
 /* ======= DESTINATIONS ADMIN ======= */
@@ -557,7 +901,7 @@ function renderDestinationsAdmin(){
   <div class="grid grid-2" style="gap:12px"><div><label class="label">Destination Name</label><input class="input" id="dest_name" placeholder="e.g. Maldives"></div><div><label class="label">Destination Image</label><input type="file" accept="image/*" id="dest_image" onchange="previewDestImage()" class="input" style="padding:6px;cursor:pointer"><div id="dest_img_preview"></div></div></div>
   <div id="dest_current_img" style="margin-top:6px"></div>
   <div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-primary" onclick="saveDest()">${state.editingDest?'Update':'Add Destination'}</button>${state.editingDest?'<button class="btn btn-outline" onclick="state.editingDest=null;state._destEditImg=null;render()">Cancel</button>':''}</div></div>
-  <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">${state.destinations.map(d=>`<div class="card" style="padding:0;overflow:hidden"><div class="dest-card">${d.imageUrl?`<img src="${esc(d.imageUrl)}" onerror="this.parentElement.style.background='linear-gradient(135deg,var(--brand-900),var(--brand-500))'">`:''}<div class="dest-overlay"><div><div style="font-weight:700;font-size:20px">${esc(d.name)}</div></div></div></div><div style="padding:14px;display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;font-size:14px">${esc(d.name)}</span><div style="display:flex;gap:6px"><button class="btn btn-outline btn-sm" onclick="editDest('${d.id}')">Edit</button><button class="btn btn-danger btn-sm" onclick="deleteDest('${d.id}')">Delete</button></div></div></div>`).join('')}</div>`;
+  <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">${state.destinations.map(d=>`<div class="card" style="padding:0;overflow:hidden"><div class="dest-card" style="${d.imageUrl?`background-image:url('${esc(d.imageUrl)}');background-size:cover;background-position:center`:'background:linear-gradient(135deg,#0f2942,#0f6b8a)'}"><div class="dest-overlay"><div><div style="font-weight:700;font-size:20px">${esc(d.name)}</div></div></div></div><div style="padding:14px;display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;font-size:14px">${esc(d.name)}</span><div style="display:flex;gap:6px"><button class="btn btn-outline btn-sm" onclick="editDest('${d.id}')">Edit</button><button class="btn btn-danger btn-sm" onclick="deleteDest('${d.id}')">Delete</button></div></div></div>`).join('')}</div>`;
 }
 
 /* ======= ENQUIRY MODAL ======= */
@@ -578,92 +922,174 @@ function renderEnquiryModal(){
 }
 
 /* ══════════ WEBSITE ══════════ */
+// Hero slideshow images (#scrolling image in main page)
+const HERO_SLIDES=[
+  {bg:'linear-gradient(135deg,rgba(12,53,71,.85),rgba(2,132,199,.6))',emoji:'🏝️',label:'Beach Escapes'},
+  {bg:'linear-gradient(135deg,rgba(12,53,71,.85),rgba(124,58,237,.5))',emoji:'🏔️',label:'Mountain Adventures'},
+  {bg:'linear-gradient(135deg,rgba(12,53,71,.85),rgba(239,68,68,.4))',emoji:'🕌',label:'Cultural Journeys'},
+  {bg:'linear-gradient(135deg,rgba(12,53,71,.85),rgba(16,163,74,.4))',emoji:'🌿',label:'Nature Retreats'},
+  {bg:'linear-gradient(135deg,rgba(12,53,71,.85),rgba(245,158,11,.4))',emoji:'✈️',label:'World Tours'},
+];
+let _heroIdx=0,_heroTimer=null;
+function startHeroSlideshow(){
+  if(_heroTimer)clearInterval(_heroTimer);
+  _heroTimer=setInterval(()=>{
+    const slides=document.querySelectorAll('.hero-slide');
+    if(!slides.length){clearInterval(_heroTimer);return;}
+    slides[_heroIdx].classList.remove('active');
+    _heroIdx=(_heroIdx+1)%slides.length;
+    slides[_heroIdx].classList.add('active');
+    document.querySelectorAll('.hero-dot').forEach((d,i)=>{
+      d.style.width=i===_heroIdx?'24px':'8px';
+      d.style.background=`rgba(255,255,255,${i===_heroIdx?'.9':'.4'})`;
+    });
+  },4000);
+}
+
 function renderWebsite(){
   const pkgs=state.packages.filter(p=>p.active!==false);
   const dests=state.destinations.filter(d=>d.active!==false);
-  $('#app').innerHTML=`<div style="font-family:'DM Sans',sans-serif;min-height:100vh;background:#fff">
-  <div class="web-hero">
-    <div class="web-nav">
-      <img src="${LOGO}" class="logo-link" style="height:50px;border-radius:8px" onclick="state.view='website';render()" alt="The FunTours">
-      <div class="web-nav-links"><a href="#home" onclick="state.view='website';render()">Home</a><a href="#packages">Packages</a><a href="#contact">Contact</a>
-      <button class="btn btn-pill" onclick="state.view='login';render()" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px">\ud83d\udd12 Admin Login</button></div>
-      <button class="web-nav-mobile-btn" onclick="document.getElementById('webMobileMenu').style.display='flex'">&#9776;</button>
+  const marqueeItems=['✈️ Flights','🏝️ Beach Getaways','🗺️ Adventure Tours','🛂 Visa Help','📕 Passport Services','🌴 Honeymoon Packages','🏔️ Hill Stations','🌊 Cruises','🎒 Backpacking','🏛️ Heritage Tours','🛕 Pilgrimage Tours','🌍 International Tours'];
+  const marqueeHTML=([...marqueeItems,...marqueeItems]).map(t=>`<span class="fun-marquee-item">${t}</span>`).join('');
+  $('#app').innerHTML=`<div style="font-family:'Nunito',sans-serif;min-height:100vh;background:#f7fbff;overflow-x:hidden">
+  <nav class="fun-nav">
+    <img src="${LOGO}" style="height:46px;border-radius:10px;cursor:pointer" onclick="state.view='website';render()" alt="The FunTours">
+    <div class="fun-nav-links">
+      <a href="#home" onclick="state.view='website';render()">🏠 Home</a>
+      <a href="#destinations">🌏 Destinations</a>
+      <a href="#packages">📦 Packages</a>
+      <a href="#contact">📞 Contact</a>
+      <a class="fun-login-btn" href="#" onclick="state.view='login';render();return false">🔒 Admin</a>
     </div>
-    <div id="webMobileMenu" class="web-mobile-menu" style="display:none">
-      <button class="web-mobile-close" onclick="document.getElementById('webMobileMenu').style.display='none'">&#10005;</button>
-      <a href="#home" onclick="document.getElementById('webMobileMenu').style.display='none';state.view='website';render()">Home</a>
-      <a href="#packages" onclick="document.getElementById('webMobileMenu').style.display='none'">Packages</a>
-      <a href="#contact" onclick="document.getElementById('webMobileMenu').style.display='none'">Contact</a>
-      <button class="btn btn-pill" onclick="document.getElementById('webMobileMenu').style.display='none';state.view='login';render()" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:15px;padding:14px 32px">\ud83d\udd12 Admin Login</button>
-    </div>
-    <div class="web-hero-content"><div style="max-width:720px">
-      <div style="display:inline-block;background:rgba(255,255,255,.12);padding:6px 18px;border-radius:50px;font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:18px;backdrop-filter:blur(4px)">\u2728 Trusted by 500+ Happy Travelers</div>
-      <h1 style="color:#fff;font-size:54px;font-weight:800;font-family:'Playfair Display',serif;line-height:1.08">Unforgettable Travel<br>Experiences Await</h1>
-      <p style="color:rgba(255,255,255,.75);font-size:18px;margin-top:18px;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">From serene backwaters to exotic islands \u2014 10 years of crafting unforgettable journeys from Karur, Erode & Kangeyam</p>
-      <div class="web-hero-btns" style="display:flex;gap:14px;justify-content:center;margin-top:32px">
-        <a href="#packages" class="btn btn-pill btn-lg" style="background:#fff;color:var(--brand-900);font-weight:700;font-size:16px;padding:16px 36px">Explore Packages</a>
-        <a href="#contact" class="btn btn-pill btn-lg" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);font-size:16px;padding:16px 36px">Contact Us</a>
-      </div>
-    </div></div>
+    <button class="fun-mobile-btn" onclick="document.getElementById('funMobileMenu').classList.add('open')">☰</button>
+  </nav>
+  <div id="funMobileMenu" class="fun-mobile-menu">
+    <button class="fun-mobile-close" onclick="document.getElementById('funMobileMenu').classList.remove('open')">✕</button>
+    <a href="#home" onclick="document.getElementById('funMobileMenu').classList.remove('open');state.view='website';render()">🏠 Home</a>
+    <a href="#destinations" onclick="document.getElementById('funMobileMenu').classList.remove('open')">🌏 Destinations</a>
+    <a href="#packages" onclick="document.getElementById('funMobileMenu').classList.remove('open')">📦 Packages</a>
+    <a href="#contact" onclick="document.getElementById('funMobileMenu').classList.remove('open')">📞 Contact</a>
+    <button onclick="document.getElementById('funMobileMenu').classList.remove('open');state.view='login';render()">🔒 Admin Login</button>
   </div>
-  <div class="web-stats">${[{n:'500+',l:'Happy Travelers'},{n:'50+',l:'Destinations'},{n:'3',l:'Branches'},{n:'10',l:'Years of Trust'}].map(s=>`<div class="web-stat-item"><div style="font-size:32px;font-weight:800;color:var(--brand-600)">${s.n}</div><div style="font-size:12px;color:var(--slate-500);font-weight:500;margin-top:2px">${s.l}</div></div>`).join('')}</div>
-  <div class="web-section" style="padding-top:80px"><div style="text-align:center;margin-bottom:40px">
-    <div style="display:inline-block;background:var(--brand-50);color:var(--brand-600);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:10px">WHY CHOOSE US</div>
-    <h2 style="font-size:36px;font-weight:700;font-family:'Playfair Display',serif">Why Travel With Fun Tours?</h2>
+  <section class="fun-hero" id="home">
+    ${HERO_SLIDES.map((s,i)=>`<div class="hero-slide${i===0?' active':''}" style="background:${s.bg}"></div>`).join('')}
+    <div class="fun-hero-blob" style="top:-200px;right:-200px"></div>
+    <div class="fun-hero-blob" style="bottom:-250px;left:-150px;width:500px;height:500px;animation-delay:3s"></div>
+    <div class="fun-float-emoji" style="top:12%;left:6%">🏝️</div>
+    <div class="fun-float-emoji" style="top:18%;right:8%">✈️</div>
+    <div class="fun-float-emoji" style="bottom:22%;left:8%">🌴</div>
+    <div class="fun-float-emoji" style="bottom:18%;right:6%">🗺️</div>
+    <div class="fun-float-emoji" style="top:42%;left:3%;font-size:2rem">🌊</div>
+    <div class="fun-float-emoji" style="top:38%;right:4%;font-size:2rem">🎒</div>
+    <div style="position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:rgba(255,217,61,.18);border-radius:50%;animation:pulse-scale 4s ease-in-out infinite;pointer-events:none"></div>
+    <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,217,61,.22);border-radius:50%;animation:pulse-scale 4s ease-in-out infinite;animation-delay:.6s;pointer-events:none"></div>
+    <svg style="position:absolute;bottom:0;left:0;right:0;z-index:3" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f7fbff"/></svg>
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:90px 24px 80px;position:relative;z-index:2">
+      <div style="max-width:780px">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.35);padding:8px 22px;border-radius:50px;font-weight:800;font-size:13px;color:#fff;margin-bottom:28px;animation:pop-in .7s ease both">⭐ Trusted by 500+ Happy Travelers &nbsp;·&nbsp; 10 Years of Fun!</div>
+        <h1 style="font-family:'Fredoka One',cursive;font-size:clamp(46px,9vw,90px);line-height:1.0;color:#fff;margin-bottom:4px;text-shadow:0 4px 24px rgba(0,0,0,.18);animation:slide-up-fade .8s ease .1s both">Your Dream Trip</h1>
+        <h1 style="font-family:'Fredoka One',cursive;font-size:clamp(34px,7vw,70px);line-height:1.1;margin-bottom:22px;animation:slide-up-fade .8s ease .2s both"><span style="background:#FFD93D;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 8px rgba(255,217,61,.6))">Starts Here! 🎉</span></h1>
+        <p style="color:rgba(255,255,255,.9);font-size:clamp(14px,2.2vw,19px);line-height:1.75;max-width:560px;margin:0 auto 36px;font-weight:600;animation:slide-up-fade .8s ease .3s both">Beaches 🏖️ · Mountains 🏔️ · Adventures 🎒 · Pilgrimages 🛕<br>From Erode &amp; Kangayam — we take you everywhere!</p>
+        <div class="fun-hero-cta" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:slide-up-fade .8s ease .4s both">
+          <a href="#packages" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0077B6;padding:16px 36px;border-radius:50px;font-family:'Fredoka One',cursive;font-size:18px;text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,.2);transition:all .25s" onmouseover="this.style.transform='translateY(-4px) scale(1.04)'" onmouseout="this.style.transform=''">🌍 Explore Packages</a>
+          <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,217,61,.95);color:#0077B6;padding:16px 36px;border-radius:50px;font-family:'Fredoka One',cursive;font-size:18px;text-decoration:none;box-shadow:0 8px 28px rgba(255,217,61,.45);transition:all .25s" onmouseover="this.style.transform='translateY(-4px) scale(1.04)'" onmouseout="this.style.transform=''">📞 Call Us Now</a>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:36px;animation:slide-up-fade .8s ease .5s both">
+          ${HERO_SLIDES.map((_,i)=>`<div class="hero-dot" onclick="jumpHeroSlide(${i})" style="width:${i===0?'28':'10'}px;height:10px;border-radius:5px;background:rgba(255,255,255,${i===0?'1':'.4'});cursor:pointer;transition:all .3s;border:2px solid rgba(255,255,255,.5)"></div>`).join('')}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="fun-marquee-wrap"><div class="fun-marquee">${marqueeHTML}</div></div>
+  <div class="fun-stats-strip">
+    ${[{n:'500+',l:'Happy Travelers',e:'😊'},{n:'50+',l:'Destinations',e:'🌍'},{n:'2',l:'Branches',e:'🏢'},{n:'10',l:'Years of Fun',e:'🎉'}].map(s=>`<div class="fun-stat-item"><div style="font-size:26px;margin-bottom:4px">${s.e}</div><div class="fun-stat-num">${s.n}</div><div class="fun-stat-label">${s.l}</div></div>`).join('')}
   </div>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">${[{icon:'\ud83c\udf1f',title:'Expert Curated',desc:'Every itinerary crafted by travel experts with 10+ years experience',bg:'var(--brand-50)',ibg:'var(--brand-100)'},{icon:'\ud83d\udcb0',title:'Best Price Guarantee',desc:'Competitive pricing with no hidden costs or surprise charges',bg:'var(--green-50)',ibg:'var(--green-100)'},{icon:'\ud83d\udee1\ufe0f',title:'Safe & Secure',desc:'Fully insured trips with 24/7 on-ground support wherever you go',bg:'var(--amber-50)',ibg:'var(--amber-100)'},{icon:'\u2764\ufe0f',title:'Personalized Service',desc:'Customized packages tailored to your preferences and budget',bg:'var(--red-50)',ibg:'var(--red-100)'}].map(c=>`<div class="why-card" style="background:${c.bg}"><div class="why-icon" style="background:${c.ibg}">${c.icon}</div><h4 style="font-weight:700;font-size:16px;margin-bottom:6px">${c.title}</h4><p style="font-size:13px;color:var(--slate-500);line-height:1.6">${c.desc}</p></div>`).join('')}</div></div>
-  <div style="background:var(--slate-50);padding:60px 24px"><div style="max-width:1120px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:36px">
-      <div style="display:inline-block;background:var(--brand-50);color:var(--brand-600);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:10px">POPULAR DESTINATIONS</div>
-      <h2 style="font-size:36px;font-weight:700;font-family:'Playfair Display',serif">Trending Destinations</h2>
-    </div>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">${dests.map(d=>`<div class="dest-card">${d.imageUrl?`<img src="${esc(d.imageUrl)}" onerror="this.parentElement.style.background='linear-gradient(135deg,var(--brand-900),var(--brand-500))'">`:''}<div class="dest-overlay"><div><div style="font-weight:700;font-size:20px">${esc(d.name)}</div></div></div></div>`).join('')}</div>
-  </div></div>
-  <div class="web-section" id="packages"><div style="text-align:center;margin-bottom:36px">
-    <div style="display:inline-block;background:var(--brand-50);color:var(--brand-600);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:10px">OUR PACKAGES</div>
-    <h2 style="font-size:36px;font-weight:700;font-family:'Playfair Display',serif">Tour Packages</h2>
-    <p style="color:var(--slate-500);font-size:15px;margin-top:8px">Handpicked experiences for every kind of traveler</p>
-    <div style="display:flex;gap:8px;justify-content:center;margin-top:20px">${['All','Domestic','International'].map(f=>`<button class="tab-btn btn-pill web-filter-btn" data-filter="${f}" onclick="filterWebPkgs('${f}')" style="padding:8px 22px">${f}</button>`).join('')}</div>
-  </div>
-  <div class="grid grid-auto" style="gap:24px" id="web-pkg-grid">${pkgs.map(p=>renderWebPkgCard(p)).join('')}</div></div>
-  <div class="web-footer" id="contact"><div style="max-width:960px;margin:0 auto;text-align:center">
-    <img src="${LOGO}" style="height:60px;border-radius:8px;margin-bottom:20px" alt="Logo">
-    <h2 style="font-size:32px;font-weight:700;font-family:'Playfair Display',serif">Ready to Start Your Journey?</h2>
-    <p style="color:rgba(255,255,255,.65);margin-top:10px;font-size:15px">Contact us today and let us plan your dream vacation</p>
-    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:28px 24px;border-radius:16px;margin-top:28px;margin-bottom:32px">
-      <div style="font-size:13px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">\ud83c\udf89 Our Journey</div>
-      <p style="color:rgba(255,255,255,.85);font-size:15px;line-height:1.8;max-width:720px;margin:0 auto">We started our journey in <strong style="color:#fff">2016 at Karur</strong> and expanded our branch to <strong style="color:#fff">Erode in 2017</strong> and <strong style="color:#fff">Kangeyam in 2026</strong>. <strong style="color:#fff">10 years</strong> of crafting unforgettable journeys! \ud83c\udf89 With <strong style="color:#fff">3 branches</strong> and a passion for exploration, we&apos;re your trusted partner in creating lifelong memories. Let&apos;s travel the world, your way!</p>
-    </div>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px;text-align:left">
-      <div style="background:rgba(255,255,255,.08);padding:24px;border-radius:14px">
-        <div style="font-weight:700;margin-bottom:4px;font-size:15px">\ud83c\udfe2 Karur Branch <span style="font-size:11px;background:rgba(255,215,0,.2);color:#fde68a;padding:2px 8px;border-radius:12px;font-weight:600;margin-left:4px">HQ</span></div>
-        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:8px">Est. 2016</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.8">Karur, Tamil Nadu</div>
-      </div>
-      <div style="background:rgba(255,255,255,.08);padding:24px;border-radius:14px">
-        <div style="font-weight:700;margin-bottom:4px;font-size:15px">\ud83c\udfe2 Erode Branch</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:8px">Est. 2017</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.8">56/10, MGA Complex, I st Floor,<br>Near Collector Office,<br>Perundurai Road, Erode - 638011</div>
-      </div>
-      <div style="background:rgba(255,255,255,.08);padding:24px;border-radius:14px">
-        <div style="font-weight:700;margin-bottom:4px;font-size:15px">\ud83c\udfe2 Kangeyam Branch</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:8px">Est. 2026</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.8">333/1 Palaiya Kottai Road,<br>Kangayam - 638701</div>
+  <section style="padding:80px 24px;background:#f7fbff">
+    <div style="max-width:1120px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:48px"><div class="fun-section-tag">🌟 Why Choose Us</div><h2 class="fun-h2">Travel More, Worry Less!</h2><p class="fun-subtitle">We handle everything so you just pack &amp; enjoy 🧳</p></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px">
+        ${[{e:'🏅',t:'Expert Guides',d:'10+ years planning perfect trips for families, couples & solo travelers',c:'#FFF3CD',ic:'#FFD93D'},{e:'💸',t:'Best Price',d:'No hidden fees. Best deals on every package, guaranteed',c:'#D4EDDA',ic:'#06D6A0'},{e:'🛡️',t:'Safe Travels',d:'Fully insured with 24/7 support wherever your journey takes you',c:'#D1ECF1',ic:'#00B4D8'},{e:'❤️',t:'Personalized',d:'Custom itineraries built around your budget, dates & dreams',c:'#F8D7DA',ic:'#FF6B9D'},{e:'🚀',t:'Quick Booking',d:'Visa, passport, flights & packages sorted fast from one place',c:'#E2D9F3',ic:'#7B61FF'},{e:'🎯',t:'Local Experts',d:'Born in Tamil Nadu. We know the best routes, resorts & gems',c:'#FFE5B4',ic:'#FF6B35'}].map(c=>`<div class="fun-why-card" style="background:${c.c}"><div class="fun-why-icon" style="background:${c.ic}">${c.e}</div><div class="fun-why-title">${c.t}</div><div class="fun-why-desc">${c.d}</div></div>`).join('')}
       </div>
     </div>
-  </div></div>
-  <div class="web-footer-bottom">\u00a9 2026 The FunTours. Discover the World, Your Way.</div>
+  </section>
+  <section id="destinations" style="padding:80px 24px;background:linear-gradient(180deg,#e8f4fd 0%,#f7fbff 100%)">
+    <div style="max-width:1120px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:44px"><div class="fun-section-tag">🗺️ Trending Now</div><h2 class="fun-h2">Where Do You Want to Go?</h2><p class="fun-subtitle">Pick your paradise — we'll handle the rest 🌴</p></div>
+      ${dests.length===0?`<div style="text-align:center;padding:60px;background:#fff;border-radius:28px;border:3px dashed #b3d9f0"><div style="font-size:64px;margin-bottom:16px">🌏</div><p style="font-family:'Fredoka One',cursive;font-size:24px;color:#00B4D8">Exciting destinations coming soon!</p></div>`:
+      `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px">${dests.map((d,i)=>`<div class="fun-dest-card" style="animation:pop-in .5s ease ${i*.08}s both;${d.imageUrl?`background-image:url('${esc(d.imageUrl)}');background-size:cover;background-position:center`:'background:linear-gradient(135deg,#0077B6,#00B4D8)'}"><div class="fun-dest-overlay"></div><div class="fun-dest-badge">✈️ Popular</div><div class="fun-dest-label">${esc(d.name)} →</div></div>`).join('')}</div>`}
+    </div>
+  </section>
+  <section id="packages" style="padding:80px 24px;background:#f7fbff">
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:44px"><div class="fun-section-tag">📦 Our Packages</div><h2 class="fun-h2">Pick Your Adventure!</h2><p class="fun-subtitle">For every kind of traveler — budget backpackers to luxury seekers 🎒✨</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px">${['All','Domestic','International'].map(f=>`<button class="fun-filter-pill web-filter-btn" data-filter="${f}" onclick="filterWebPkgs('${f}')">${f==='All'?'🌐':f==='Domestic'?'🇮🇳':'✈️'} ${f}</button>`).join('')}</div></div>
+      ${pkgs.length===0?`<div style="text-align:center;padding:60px;background:#fff;border-radius:28px;border:3px dashed #b3d9f0"><div style="font-size:64px;margin-bottom:16px">📦</div><p style="font-family:'Fredoka One',cursive;font-size:24px;color:#00B4D8">Packages coming soon!</p></div>`:
+      `<div class="grid grid-auto" style="gap:26px" id="web-pkg-grid">${pkgs.map(p=>renderWebPkgCard(p)).join('')}</div>`}
+    </div>
+  </section>
+  <section style="padding:64px 24px;background:linear-gradient(135deg,#0077B6 0%,#00B4D8 50%,#90E0EF 100%);position:relative;overflow:hidden">
+    <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,.06);border-radius:50%;pointer-events:none"></div>
+    <div style="max-width:1120px;margin:0 auto;text-align:center;position:relative;z-index:1">
+      <h2 style="font-family:'Fredoka One',cursive;font-size:36px;color:#fff;margin-bottom:10px">Everything Under One Roof! 🏠</h2>
+      <p style="font-family:'Nunito',sans-serif;color:rgba(255,255,255,.85);font-size:15px;margin-bottom:40px">From booking to boarding — we've got you covered</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+        ${[{e:'✈️',t:'Flight Tickets',d:'Best fares'},{e:'🛂',t:'Visa Services',d:'All countries'},{e:'📕',t:'Passport',d:'Fast service'},{e:'🏝️',t:'Tour Packages',d:'Domestic & intl'},{e:'🏨',t:'Hotels',d:'Budget to luxury'},{e:'🚌',t:'Transport',d:'AC & private'}].map(s=>`<div style="background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);border-radius:20px;padding:22px 14px;transition:all .25s;cursor:default" onmouseover="this.style.background='rgba(255,255,255,.22)';this.style.transform='translateY(-6px)'" onmouseout="this.style.background='rgba(255,255,255,.12)';this.style.transform=''"><div style="font-size:34px;margin-bottom:8px">${s.e}</div><div style="font-family:'Fredoka One',cursive;font-size:15px;color:#fff;margin-bottom:3px">${s.t}</div><div style="font-family:'Nunito',sans-serif;font-size:11px;color:rgba(255,255,255,.7)">${s.d}</div></div>`).join('')}
+      </div>
+    </div>
+  </section>
+  <section style="padding:80px 24px;background:#fff">
+    <div style="max-width:960px;margin:0 auto;text-align:center">
+      <div class="fun-section-tag">💬 Happy Travelers</div>
+      <h2 class="fun-h2">They Loved It! You Will Too 😍</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:40px">
+        ${[{name:'Priya S.',loc:'Erode',msg:'Booked a Maldives honeymoon — absolutely perfect! Every detail taken care of.',stars:'⭐⭐⭐⭐⭐',avatar:'👩'},{name:'Rajan M.',loc:'Kangayam',msg:'Got passport renewed in 5 days! Super fast, very professional staff.',stars:'⭐⭐⭐⭐⭐',avatar:'👨'},{name:'Devi Family',loc:'Erode',msg:'Amazing Kerala family trip. Kids loved it, adults loved it. Will book again!',stars:'⭐⭐⭐⭐⭐',avatar:'👨‍👩‍👧‍👦'}].map(t=>`<div style="background:linear-gradient(135deg,#f0f9ff,#e8f4fd);border-radius:24px;padding:26px;border:2px solid #b3d9f0;text-align:left;transition:all .25s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,180,216,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:22px;margin-bottom:10px">${t.stars}</div><p style="font-family:'Nunito',sans-serif;font-size:14px;color:#444;line-height:1.7;margin-bottom:14px;font-style:italic">"${t.msg}"</p><div style="display:flex;align-items:center;gap:10px"><div style="width:40px;height:40px;background:linear-gradient(135deg,#00B4D8,#0077B6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">${t.avatar}</div><div><div style="font-family:'Fredoka One',cursive;font-size:14px;color:#0077B6">${t.name}</div><div style="font-family:'Nunito',sans-serif;font-size:11px;color:#888">📍 ${t.loc}</div></div></div></div>`).join('')}
+      </div>
+    </div>
+  </section>
+  <footer class="fun-footer" id="contact">
+    <div style="max-width:960px;margin:0 auto;text-align:center;position:relative;z-index:1;padding-top:20px">
+      <div style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);border-radius:28px;padding:44px 28px;margin-bottom:48px;backdrop-filter:blur(8px)">
+        <div style="font-size:48px;margin-bottom:12px">🌏✈️🎉</div>
+        <h2 style="font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,40px);color:#fff;margin-bottom:10px">Ready for Your Next Adventure?</h2>
+        <p style="font-family:'Nunito',sans-serif;color:rgba(255,255,255,.8);font-size:15px;margin-bottom:28px">Call us, WhatsApp us — we're always happy to plan your dream trip!</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a href="tel:+917339331188" class="fun-call-btn">📞 Erode Office</a>
+          <a href="tel:+918122976688" class="fun-call-btn">📞 Kangayam Office</a>
+          <a href="https://wa.me/917339331188?text=Hi%20FunTours!%20I'm%20interested%20in%20a%20tour." target="_blank" class="fun-call-btn" style="background:linear-gradient(135deg,#25d366,#128c7e)">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:44px;text-align:left">
+        <div class="fun-contact-card"><div style="font-size:26px;margin-bottom:10px">🏢</div><div class="fun-contact-title">Erode Branch <span style="font-size:11px;background:rgba(255,217,61,.2);color:#FFD93D;padding:2px 10px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;margin-left:6px">HQ</span></div><div style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Nunito',sans-serif;margin-bottom:8px">Est. 2017</div><p style="font-family:'Nunito',sans-serif;font-size:13px;color:rgba(255,255,255,.75);line-height:1.9">📍 56/10, MGA Complex, I st Floor,<br>Near Collector Office,<br>Perundurai Road, Erode - 638011</p><a href="tel:+917339331188" class="fun-call-btn" style="margin-top:12px;font-size:12px;padding:9px 18px">📞 +91 73393 31188</a></div>
+        <div class="fun-contact-card"><div style="font-size:26px;margin-bottom:10px">🏢</div><div class="fun-contact-title">Kangayam Branch</div><div style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Nunito',sans-serif;margin-bottom:8px">Est. 2026</div><p style="font-family:'Nunito',sans-serif;font-size:13px;color:rgba(255,255,255,.75);line-height:1.9">📍 333/1 Palaiya Kottai Road,<br>Kangayam - 638701</p><a href="tel:+918122976688" class="fun-call-btn" style="margin-top:12px;font-size:12px;padding:9px 18px">📞 +91 81229 76688</a></div>
+        <div class="fun-contact-card"><div style="font-size:26px;margin-bottom:10px">🗓️</div><div class="fun-contact-title">Our Story</div><div style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Nunito',sans-serif;margin-bottom:8px">Since 2016</div><p style="font-family:'Nunito',sans-serif;font-size:13px;color:rgba(255,255,255,.75);line-height:1.9">Started in Karur in 2016 🌱<br>Expanded to Erode in 2017 🚀<br>Opened Kangayam in 2026 🎉<br><strong style="color:#FFD93D">10 years of making memories!</strong></p></div>
+      </div>
+      <img src="${LOGO}" style="height:50px;border-radius:10px;opacity:.85;margin-bottom:16px" alt="Logo">
+    </div>
+    <div style="background:rgba(0,0,0,.25);padding:16px 24px;text-align:center;font-family:'Nunito',sans-serif;font-size:13px;color:rgba(255,255,255,.5)">© 2026 The FunTours · Discover the World, Your Way 🌍 · Made with ❤️ in Tamil Nadu</div>
+  </footer>
   </div>`;
   filterWebPkgs('All');
+  _heroIdx=0;
+  startHeroSlideshow();
 }
-
-function renderWebPkgCard(p){
-  return `<div class="pkg-card" data-type="${p.type}" onclick="showPkgModal('${p.id}')"><div class="pkg-thumb">${p.imageUrl?`<img src="${esc(p.imageUrl)}" onerror="this.style.display='none'">`:'<span style="font-size:72px">\ud83c\udf0d</span>'}<span class="pkg-type-badge">${p.type}</span></div><div class="pkg-body"><h3 style="font-weight:700;font-size:19px">${esc(p.title)}</h3><p style="font-size:13px;color:var(--slate-500);margin-top:4px">\ud83d\udccd ${esc(p.location)} &nbsp;\u00b7&nbsp; \ud83d\udcc5 ${p.days} Days</p><p style="font-size:13px;color:var(--slate-400);margin-top:8px;line-height:1.5">${esc(p.description)}</p><div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap">${(p.highlights||[]).map(h=>`<span class="highlight-tag">${esc(h)}</span>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--slate-100)"><div><span style="font-size:12px;color:var(--slate-400)">Starting from</span><div style="font-size:26px;font-weight:800;color:var(--brand-600)">\u20b9${num(p.price)}</div></div><button class="btn btn-primary btn-pill">View Details \u2192</button></div></div></div>`;
+function jumpHeroSlide(idx){
+  const slides=document.querySelectorAll('.hero-slide');
+  if(!slides.length)return;
+  slides[_heroIdx].classList.remove('active');
+  _heroIdx=idx;
+  slides[_heroIdx].classList.add('active');
+  document.querySelectorAll('.hero-dot').forEach((d,i)=>{
+    d.style.width=i===_heroIdx?'24px':'8px';
+    d.style.background=`rgba(255,255,255,${i===_heroIdx?'.9':'.4'})`;
+  });
+  // reset timer
+  if(_heroTimer)clearInterval(_heroTimer);
+  startHeroSlideshow();
 }
 
 function filterWebPkgs(type){
   $$('.web-filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===type));
-  $$('.pkg-card').forEach(c=>{if(type==='All')c.style.display='';else c.style.display=c.dataset.type===type?'':'none'});
+  $$('.fun-pkg-card,.pkg-card').forEach(c=>{if(type==='All')c.style.display='';else c.style.display=c.dataset.type===type?'':'none'});
 }
 
 function showPkgModal(id){
@@ -695,22 +1121,28 @@ function closeSidebarOnMobile(){
 // ── Branches ──────────────────────────────────────────────────────────────
 async function saveBranch(){
   const n=$('#br_name')?.value,c=$('#br_city')?.value,a=$('#br_address')?.value,p=$('#br_phone')?.value;
-  if(!n)return;
-  let error;
-  if(state.editingBranch){
-    ({error}=await _sb.from('branches').update({name:n,city:c,address:a,phone:p}).eq('id',state.editingBranch));
-    state.editingBranch=null;
-  }else{
-    ({error}=await _sb.from('branches').insert({name:n,city:c,address:a,phone:p,active:true}));
-  }
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Branch saved!');await dbLoad();render();
+  if(!n){toast('Branch name required');return;}
+  const btn=document.querySelector('[onclick="saveBranch()"]');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Saving…';}
+  try{
+    let error;
+    if(state.editingBranch){
+      ({error}=await _sb.from('branches').update({name:n,city:c,address:a,phone:p}).eq('id',state.editingBranch));
+      state.editingBranch=null;
+    }else{
+      ({error}=await _sb.from('branches').insert({name:n,city:c,address:a,phone:p,active:true}));
+    }
+    if(error){toast('\u274c '+error.message);if(btn){btn.disabled=false;btn.innerHTML='Save Branch';}return;}
+    toast('Branch saved!');await dbLoad('branches');render();
+  }catch(e){toast('\u274c '+e.message);if(btn){btn.disabled=false;btn.innerHTML='Save Branch';}}
 }
 function editBranch(id){state.editingBranch=id;render();const b=state.branches.find(x=>x.id===id);if(b){$('#br_name').value=b.name;$('#br_city').value=b.city;$('#br_address').value=b.address;$('#br_phone').value=b.phone||''}}
 async function deleteBranch(id){
-  const{error}=await _sb.from('branches').delete().eq('id',id);
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Deleted');await dbLoad();render();
+  confirmAction('This will permanently delete this branch.',async function(){
+    try{const{error}=await _sb.from('branches').delete().eq('id',id);
+    if(error){toast('\u274c '+error.message);return;}
+    toast('Branch deleted');await dbLoad('branches');render();}catch(e){toast('\u274c '+e.message);}
+  });
 }
 
 // ── Staff ─────────────────────────────────────────────────────────────────
@@ -719,23 +1151,26 @@ async function saveStaff(){
   p=$('#st_phone')?.value,e=$('#st_email')?.value,
   uname=$('#st_username')?.value?.trim()||null,
   pwd=$('#st_password')?.value||null;
-  if(!n)return;
-  // Check username uniqueness among staff
+  if(!n){toast('Staff name required');return;}
   if(uname){
     const dup=state.staff.find(x=>x.username===uname&&x.id!==state.editingStaff);
     if(dup){toast('\u274c Username already taken by '+dup.name);return;}
   }
-  let error;
-  if(state.editingStaff){
-    const upd={name:n,role:r,branch:b,phone:p,email:e,username:uname};
-    if(pwd)upd.password=pwd; // only update password if a new one is entered
-    ({error}=await _sb.from('staff').update(upd).eq('id',state.editingStaff));
-    state.editingStaff=null;
-  }else{
-    ({error}=await _sb.from('staff').insert({name:n,role:r,branch:b,phone:p,email:e,username:uname,password:pwd,active:true}));
-  }
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Staff saved!');await dbLoad();render();
+  const btn=document.querySelector('[onclick="saveStaff()"]');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Saving…';}
+  try{
+    let error;
+    if(state.editingStaff){
+      const upd={name:n,role:r,branch:b,phone:p,email:e,username:uname};
+      if(pwd)upd.password=pwd;
+      ({error}=await _sb.from('staff').update(upd).eq('id',state.editingStaff));
+      state.editingStaff=null;
+    }else{
+      ({error}=await _sb.from('staff').insert({name:n,role:r,branch:b,phone:p,email:e,username:uname,password:pwd,active:true}));
+    }
+    if(error){toast('\u274c '+error.message);if(btn){btn.disabled=false;btn.innerHTML='Save Staff';}return;}
+    toast('Staff saved!');await dbLoad('staff');render();
+  }catch(err){toast('\u274c '+err.message);if(btn){btn.disabled=false;btn.innerHTML='Save Staff';}}
 }
 function editStaff(id){
   state.editingStaff=id;render();
@@ -751,40 +1186,174 @@ function editStaff(id){
   }
 }
 async function deleteStaff(id){
-  const{error}=await _sb.from('staff').delete().eq('id',id);
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Deleted');await dbLoad();render();
+  confirmAction('This will permanently delete this staff member.',async function(){
+    try{const{error}=await _sb.from('staff').delete().eq('id',id);
+    if(error){toast('\u274c '+error.message);return;}
+    toast('Staff deleted');await dbLoad('staff');render();}catch(e){toast('\u274c '+e.message);}
+  });
 }
 
-// ── Packages ──────────────────────────────────────────────────────────────
+// ── Itinerary helpers ─────────────────────────────────────────────────────
+function addItineraryDay(){
+  const days=state.pkgItinerary.length;
+  state.pkgItinerary.push({day:days+1,title:'',activities:'',meals:'',stay:'',transport:''});
+  state.pkgFormTab='itinerary';
+  render();
+  // Scroll to new day
+  setTimeout(()=>{const el=document.getElementById('itin_day_'+(state.pkgItinerary.length-1));if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},100);
+}
+function removeItinDay(idx){
+  state.pkgItinerary.splice(idx,1);
+  // Renumber days
+  state.pkgItinerary.forEach((d,i)=>d.day=i+1);
+  render();
+}
+function updateItinDay(idx){
+  const d=state.pkgItinerary[idx];if(!d)return;
+  d.title=$('#itin_title_'+idx)?.value||'';
+  d.activities=$('#itin_act_'+idx)?.value||'';
+  d.meals=$('#itin_meal_'+idx)?.value||'';
+  d.stay=$('#itin_stay_'+idx)?.value||'';
+  d.transport=$('#itin_transport_'+idx)?.value||'';
+}
+function toggleItinDay(idx){
+  const body=document.getElementById('itin_body_'+idx);
+  if(body)body.style.display=body.style.display==='none'?'grid':'none';
+}
+function syncItineraryDays(force=false){
+  // Save current values first
+  state.pkgItinerary.forEach((_,i)=>updateItinDay(i));
+  const daysInput=$('#pk_days');
+  const numDays=parseInt(daysInput?.value)||0;
+  if(!numDays&&!force)return;
+  if(numDays>0){
+    const current=state.pkgItinerary.length;
+    if(numDays>current){
+      for(let i=current;i<numDays;i++){
+        state.pkgItinerary.push({day:i+1,title:'',activities:'',meals:'',stay:'',transport:''});
+      }
+    } else if(numDays<current){
+      state.pkgItinerary=state.pkgItinerary.slice(0,numDays);
+    }
+  }
+  state.pkgFormTab='itinerary';
+  render();
+}
+
+// ── Package Admin Detail Modal ────────────────────────────────────────────
+function showPkgAdminDetail(id){
+  const p=state.packages.find(x=>x.id===id);if(!p)return;
+  const itin=p.itinerary||[];
+  const ov=document.createElement('div');ov.className='modal-overlay';ov.onclick=()=>ov.remove();
+  ov.innerHTML=`<div class="pkg-modal" onclick="event.stopPropagation()">
+    <!-- Hero Image -->
+    <div class="pkg-modal-hero">
+      ${p.imageUrl
+        ?`<div style="width:100%;height:100%;background-image:url('${esc(p.imageUrl)}');background-size:cover;background-position:center"></div>`
+        :`<div style="width:100%;height:100%;background:linear-gradient(135deg,#0f2942,#0f6b8a);display:flex;align-items:center;justify-content:center;font-size:6rem">🌍</div>`}
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.1) 60%,transparent 100%)"></div>
+      <button onclick="this.closest('.modal-overlay').remove()" style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,.4);border:none;color:#fff;width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;backdrop-filter:blur(4px)">✕</button>
+      <div style="position:absolute;bottom:20px;left:24px;right:24px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+          <span style="background:${p.type==='Domestic'?'#00C9A7':'#4A90D9'};color:#fff;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:800">${p.type}</span>
+          ${itin.length>0?`<span style="background:rgba(255,215,0,.9);color:#1a1a1a;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:800">🗺️ ${itin.length}-Day Itinerary</span>`:''}
+        </div>
+        <h2 style="color:#fff;font-size:1.7rem;font-weight:800;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.3)">${esc(p.title)}</h2>
+        <div style="display:flex;gap:16px;color:rgba(255,255,255,.85);font-size:13px;font-weight:600">
+          <span>📍 ${esc(p.location)}</span>
+          <span>🗓️ ${p.days} Days</span>
+          <span>💰 ₹${num(p.price)}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="pkg-modal-body">
+      <!-- Description & Highlights -->
+      ${p.description?`<p style="color:var(--slate-600);font-size:14px;line-height:1.75;margin-bottom:16px">${esc(p.description)}</p>`:''}
+      ${(p.highlights||[]).length?`<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">${(p.highlights||[]).map(h=>`<span style="background:#FFF4E0;color:#FF6B35;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;border:1.5px solid rgba(255,107,53,.2)">✓ ${esc(h)}</span>`).join('')}</div>`:''}
+
+      <!-- Itinerary Timeline -->
+      ${itin.length>0?`
+      <div style="margin-top:4px">
+        <h3 style="font-size:16px;font-weight:800;color:var(--slate-900);margin-bottom:18px;display:flex;align-items:center;gap:8px">
+          🗺️ Day-by-Day Itinerary
+          <span style="background:var(--brand-100);color:var(--brand-600);font-size:11px;padding:2px 10px;border-radius:20px">${itin.length} Days</span>
+        </h3>
+        <div style="position:relative">
+          <div style="position:absolute;left:19px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--brand-500),var(--brand-100));border-radius:2px"></div>
+          ${itin.map((day,i)=>`
+          <div style="display:flex;gap:16px;margin-bottom:${i<itin.length-1?'24':'0'}px">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:${i===0?'linear-gradient(135deg,var(--brand-600),var(--brand-500))':'#fff'};border:2px solid var(--brand-500);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:${i===0?'#fff':'var(--brand-600)'};box-shadow:0 2px 8px rgba(2,132,199,.2);position:relative;z-index:1">${day.day}</div>
+            <div style="flex:1;background:${i===0?'linear-gradient(135deg,#eff6ff,#dbeafe)':'var(--slate-50)'};border-radius:14px;padding:16px;border:1.5px solid ${i===0?'#bfdbfe':'#f0f0f0'}">
+              <div style="font-weight:800;font-size:15px;color:var(--slate-900);margin-bottom:6px">Day ${day.day}${day.title?': '+esc(day.title):''}</div>
+              ${day.activities?`<p style="font-size:13.5px;color:var(--slate-600);line-height:1.7;margin-bottom:10px">${esc(day.activities)}</p>`:''}
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                ${day.meals?`<span style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0e0e0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--slate-600)">🍽️ ${esc(day.meals)}</span>`:''}
+                ${day.stay?`<span style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0e0e0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--slate-600)">🏨 ${esc(day.stay)}</span>`:''}
+                ${day.transport?`<span style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0e0e0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--slate-600)">🚗 ${esc(day.transport)}</span>`:''}
+              </div>
+            </div>
+          </div>`).join('')}
+        </div>
+      </div>`:`
+      <div style="text-align:center;padding:32px;background:var(--slate-50);border-radius:14px;border:2px dashed var(--slate-200)">
+        <div style="font-size:2.5rem;margin-bottom:8px">🗺️</div>
+        <div style="font-weight:700;color:var(--slate-400);font-size:14px">No itinerary added yet</div>
+        <button class="btn btn-outline btn-sm" style="margin-top:12px" onclick="this.closest('.modal-overlay').remove();editPackage('${p.id}');state.pkgFormTab='itinerary';render()">Add Itinerary</button>
+      </div>`}
+
+      <!-- Footer actions -->
+      <div style="display:flex;gap:10px;margin-top:24px;padding-top:18px;border-top:1.5px solid var(--slate-100);justify-content:flex-end">
+        <button class="btn btn-outline" onclick="this.closest('.modal-overlay').remove();editPackage('${p.id}')">✏️ Edit Package</button>
+        <button class="btn btn-outline" onclick="this.closest('.modal-overlay').remove();editPackage('${p.id}');state.pkgFormTab='itinerary';setTimeout(()=>render(),50)">🗺️ Edit Itinerary</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.appendChild(ov);
+}
 async function savePackage(){
   const t=$('#pk_title')?.value,ty=$('#pk_type')?.value,l=$('#pk_location')?.value,
   d=$('#pk_days')?.value,p=$('#pk_price')?.value,
   desc=$('#pk_desc')?.value,hl=$('#pk_highlights')?.value;
-  if(!t)return;
+  if(!t){toast('Package title required');return;}
+  // Flush any unsaved itinerary edits
+  (state.pkgItinerary||[]).forEach((_,i)=>updateItinDay(i));
   const highlights=hl?hl.split(',').map(s=>s.trim()).filter(Boolean):[];
-  let image_url=state._pkgEditImg||null;
-  const pkFile=$('#pk_image');
-  if(pkFile?.files?.length){
-    try{toast('\u23f3 Uploading image...');image_url=await uploadImage('package-images',pkFile.files[0]);}
-    catch(err){toast('\u274c Upload failed: '+err.message);return;}
-  }
-  const row={title:t,type:ty,location:l,days:Number(d),price:Number(p),image_url,description:desc,highlights,active:true};
-  let error;
-  if(state.editingPkg){
-    ({error}=await _sb.from('packages').update(row).eq('id',state.editingPkg));
-    state.editingPkg=null;
-  }else{
-    row.id=uid();
-    ({error}=await _sb.from('packages').insert(row));
-  }
-  state._pkgEditImg=null;
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Package saved!');await dbLoad();render();
+  const itinerary=state.pkgItinerary||[];
+  const btn=document.querySelector('[onclick="savePackage()"]');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Saving\u2026';}
+  try{
+    let image_url=state._pkgEditImg||null;
+    const pkFile=$('#pk_image');
+    if(pkFile?.files?.length){
+      toast('\u23f3 Uploading image\u2026');
+      image_url=await uploadImage('package-images',pkFile.files[0]);
+    }
+    const row={title:t,type:ty,location:l,days:Number(d),price:Number(p),image_url,description:desc,highlights,itinerary,active:true};
+    let error;
+    if(state.editingPkg){
+      ({error}=await _sb.from('packages').update(row).eq('id',state.editingPkg));
+      state.editingPkg=null;
+    }else{
+      row.id=uid();
+      ({error}=await _sb.from('packages').insert(row));
+    }
+    state._pkgEditImg=null;
+    state.pkgItinerary=[];
+    state.pkgFormTab='details';
+    if(error){toast('\u274c '+error.message);if(btn){btn.disabled=false;btn.innerHTML='Save Package';}return;}
+    toast('Package saved!');await dbLoad('packages');render();
+  }catch(err){toast('\u274c '+(err.message||'Failed'));if(btn){btn.disabled=false;btn.innerHTML='Save Package';}}
 }
 function editPackage(id){
-  state.editingPkg=id;render();
+  state.editingPkg=id;
+  state.pkgFormTab=state.pkgFormTab||'details';
   const p=state.packages.find(x=>x.id===id);
+  if(p){
+    state.pkgItinerary=JSON.parse(JSON.stringify(p.itinerary||[]));
+  }
+  render();
   if(p){
     $('#pk_title').value=p.title;$('#pk_type').value=p.type;
     $('#pk_location').value=p.location;$('#pk_days').value=p.days;
@@ -793,35 +1362,59 @@ function editPackage(id){
     $('#pk_highlights').value=(p.highlights||[]).join(', ');
     state._pkgEditImg=p.imageUrl||p.image_url||null;
     const ci=$('#pk_current_img');
-    if(ci&&state._pkgEditImg)ci.innerHTML=`<div style="font-size:11px;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Current Image</div><div style="position:relative;height:90px;border-radius:8px;overflow:hidden;max-width:180px"><img src="${state._pkgEditImg}" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:10px;background:rgba(0,0,0,.5);padding:2px 8px;border-radius:12px">Upload new to replace</span></div></div>`;
+    if(ci&&state._pkgEditImg)ci.innerHTML=`<div style="font-size:11px;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Current Image</div><div style="position:relative;height:90px;border-radius:8px;overflow:hidden;max-width:180px"><div style="width:100%;height:100%;background-image:url('${state._pkgEditImg}');background-size:cover;background-position:center"></div><div style="position:absolute;inset:0;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:10px;background:rgba(0,0,0,.5);padding:2px 8px;border-radius:12px">Upload new to replace</span></div></div>`;
   }
 }
 async function deletePackage(id){
-  const{error}=await _sb.from('packages').delete().eq('id',id);
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Deleted');await dbLoad();render();
+  confirmAction('This will permanently delete this package.',async function(){
+    try{const{error}=await _sb.from('packages').delete().eq('id',id);
+    if(error){toast('\u274c '+error.message);return;}
+    toast('Package deleted');await dbLoad('packages');render();}catch(e){toast('\u274c '+e.message);}
+  });
 }
 
 // ── Destinations ──────────────────────────────────────────────────────────
 async function saveDest(){
   const n=$('#dest_name')?.value;
-  if(!n)return;
-  let image_url=state._destEditImg||null;
-  const dFile=$('#dest_image');
-  if(dFile?.files?.length){
-    try{toast('\u23f3 Uploading image...');image_url=await uploadImage('destination-images',dFile.files[0]);}
-    catch(err){toast('\u274c Upload failed: '+err.message);return;}
+  if(!n){toast('Destination name required');return;}
+  const btn=document.querySelector('[onclick="saveDest()"]');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Saving\u2026';}
+  try{
+    let image_url=state._destEditImg||null;
+    const dFile=$('#dest_image');
+    if(dFile?.files?.length){
+      try{
+        toast('\u23f3 Uploading image\u2026');
+        image_url=await uploadImage('destination-images',dFile.files[0]);
+      }catch(imgErr){
+        // Image upload failed — save without image, show warning
+        console.error('Image upload error:',imgErr);
+        toast('\u26a0\ufe0f Image upload failed ('+imgErr.message+') — saving without image');
+        image_url=null;
+      }
+    }
+    let error;
+    if(state.editingDest){
+      ({error}=await _sb.from('destinations').update({name:n,image_url}).eq('id',state.editingDest));
+      state.editingDest=null;
+    }else{
+      const newId=uid();
+      console.log('Inserting destination:',{id:newId,name:n,image_url,active:true});
+      ({error}=await _sb.from('destinations').insert({id:newId,name:n,image_url,active:true}));
+    }
+    state._destEditImg=null;
+    if(error){
+      console.error('DB insert error:',error);
+      toast('\u274c DB Error: '+error.message+' (code:'+error.code+')');
+      if(btn){btn.disabled=false;btn.innerHTML='Save Destination';}
+      return;
+    }
+    toast('Destination saved!');await dbLoad('destinations');render();
+  }catch(err){
+    console.error('saveDest exception:',err);
+    toast('\u274c '+(err.message||'Failed'));
+    if(btn){btn.disabled=false;btn.innerHTML='Save Destination';}
   }
-  let error;
-  if(state.editingDest){
-    ({error}=await _sb.from('destinations').update({name:n,image_url}).eq('id',state.editingDest));
-    state.editingDest=null;
-  }else{
-    ({error}=await _sb.from('destinations').insert({id:uid(),name:n,image_url,active:true}));
-  }
-  state._destEditImg=null;
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Destination saved!');await dbLoad();render();
 }
 function editDest(id){
   state.editingDest=id;render();
@@ -834,9 +1427,11 @@ function editDest(id){
   }
 }
 async function deleteDest(id){
-  const{error}=await _sb.from('destinations').delete().eq('id',id);
-  if(error){toast('\u274c '+error.message);return;}
-  toast('Deleted');await dbLoad();render();
+  confirmAction('This will permanently delete this destination.',async function(){
+    try{const{error}=await _sb.from('destinations').delete().eq('id',id);
+    if(error){toast('\u274c '+error.message);return;}
+    toast('Destination deleted');await dbLoad('destinations');render();}catch(e){toast('\u274c '+e.message);}
+  });
 }
 // previewDest removed — file input now shows live preview
 
@@ -847,6 +1442,8 @@ function toggleModalService(cb){const v=cb.value;if(cb.checked){if(!modalService
 async function saveEnquiry(){
   const name=$('#enq_name')?.value,phone=$('#enq_phone')?.value;
   if(!name||!phone){toast('Fill name & phone');return}
+  const btn=document.querySelector('[onclick="saveEnquiry()"]');
+  if(btn){btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Saving…';}
   const enq={
     id:uid(),customerName:name,phone,services:[...modalServices],
     assignedTo:$('#enq_staff')?.value||'',dueDate:$('#enq_due')?.value||'',
@@ -861,9 +1458,11 @@ async function saveEnquiry(){
     flightStage:modalServices.includes('Flight Ticket')?FLIGHT_STAGES[0]:null,
     currentStage:'Enquiry Received',createdAt:new Date().toISOString(),logs:['Enquiry created']
   };
-  const{error}=await _sb.from('enquiries').insert(enqToDB(enq));
-  if(error){toast('\u274c '+error.message);return;}
-  modalServices=[];state.modal=null;toast('Enquiry created!');await dbLoad();render();
+  try{
+    const{error}=await _sb.from('enquiries').insert(enqToDB(enq));
+    if(error){toast('\u274c '+error.message);if(btn){btn.disabled=false;btn.innerHTML='Create Enquiry';}return;}
+    modalServices=[];state.modal=null;toast('Enquiry created!');await dbLoad('enquiries');render();
+  }catch(e){toast('\u274c '+e.message);if(btn){btn.disabled=false;btn.innerHTML='Create Enquiry';}}
 }
 
 async function advanceStage(service){
@@ -873,7 +1472,8 @@ async function advanceStage(service){
   if(idx<stages.length-1){
     e[key]=stages[idx+1];e.currentStage=stages[idx+1];
     e.logs.push(service+': moved to "'+stages[idx+1]+'"');
-    await _sb.from('enquiries').update(enqToDB(e)).eq('id',e.id);
+    try{await _sb.from('enquiries').update(enqToDB(e)).eq('id',e.id);}
+    catch(err){toast('\u274c Failed to save: '+err.message);}
   }
   render();
 }
@@ -881,15 +1481,23 @@ async function setStage(service,stage){
   const e=state.enquiries.find(x=>x.id===state.selectedEnquiry);if(!e)return;
   const km={'Packages':'pkgStage','Passport':'passportStage','Visa':'visaStage','Flight Ticket':'flightStage'};
   e[km[service]]=stage;e.currentStage=stage;e.logs.push(service+': set to "'+stage+'"');
-  await _sb.from('enquiries').update(enqToDB(e)).eq('id',e.id);render();
+  try{await _sb.from('enquiries').update(enqToDB(e)).eq('id',e.id);}
+  catch(err){toast('\u274c Failed to save: '+err.message);}
+  render();
 }
 async function saveServiceNotes(eid,field,iid){
   const e=state.enquiries.find(x=>x.id===eid);const inp=$('#'+iid);
-  if(e&&inp){e[field]=inp.value;e.logs.push('Updated notes');await _sb.from('enquiries').update(enqToDB(e)).eq('id',e.id);toast('Notes saved!');}
+  if(e&&inp){e[field]=inp.value;e.logs.push('Updated notes');
+    try{await _sb.from('enquiries').update(enqToDB(e)).eq('id',e.id);toast('Notes saved!');}
+    catch(err){toast('\u274c Failed: '+err.message);}
+  }
 }
 async function addLogNote(eid){
   const e=state.enquiries.find(x=>x.id===eid);const inp=$('#log_note');
-  if(e&&inp&&inp.value.trim()){e.logs.push('Note: '+inp.value.trim());await _sb.from('enquiries').update({logs:e.logs}).eq('id',e.id);render();}
+  if(e&&inp&&inp.value.trim()){e.logs.push('Note: '+inp.value.trim());
+    try{await _sb.from('enquiries').update({logs:e.logs}).eq('id',e.id);render();}
+    catch(err){toast('\u274c Failed: '+err.message);}
+  }
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────
